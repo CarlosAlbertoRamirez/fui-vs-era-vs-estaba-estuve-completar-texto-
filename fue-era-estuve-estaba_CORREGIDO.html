@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fui · Era · Estuve · Estaba | Your Mexican Friend</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cyan:#25d9ff;--magenta:#ff2bbf;--magenta2:#ff4fd8;
+  --bg1:#070019;--bg2:#160033;--text:#f0f0ff;--muted:#a8abce;--muted2:#5a5d8a;
+  --good:#22c55e;--bad:#ef4444;--warn:#f59e0b;
+  --cfui:#f97316;--cera:#a78bfa;--cestuve:#34d399;--cestaba:#25d9ff;
+  --font:'DM Sans',system-ui,sans-serif;--display:'Syne',system-ui,sans-serif;
+  --shadow:0 20px 40px rgba(0,0,0,.4),0 0 28px rgba(37,217,255,.07);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:radial-gradient(ellipse at 20% 10%,rgba(167,139,250,.12),transparent 35%),radial-gradient(ellipse at 80% 15%,rgba(34,211,153,.07),transparent 35%),linear-gradient(155deg,var(--bg1),var(--bg2));color:var(--text);min-height:100vh}
+.app{width:min(900px,96%);margin:14px auto 60px;display:flex;flex-direction:column;gap:14px}
+
+/* HERO */
+.hero{border-radius:20px;padding:22px 28px;background:linear-gradient(130deg,#0a0022,#1c0050 55%,#0c002e);border:1px solid rgba(255,255,255,.09);box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:36px 36px;pointer-events:none}
+.hero-in{position:relative;z-index:1}
+.hero-top{display:flex;align-items:center;gap:16px;margin-bottom:12px;flex-wrap:wrap}
+.logo-box{width:52px;height:52px;flex-shrink:0;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#0c0030,#280060);border:2px solid rgba(37,217,255,.28);font-family:var(--display);font-size:.8rem;font-weight:900;color:var(--magenta)}
+.hero h1{font-family:var(--display);font-size:clamp(1.1rem,2.5vw,1.8rem);font-weight:900;background:linear-gradient(90deg,var(--cfui),var(--cera) 35%,var(--cestuve) 65%,var(--cestaba));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{color:var(--muted);font-size:.83rem;margin-top:3px}
+.badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.badge{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:3px 11px;font-size:.7rem;font-weight:700;color:var(--muted)}
+
+/* PAGE NAV */
+.page-nav{display:flex;gap:0;background:rgba(18,4,42,.97);border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.pnav-btn{flex:1;border:0;background:transparent;color:var(--muted2);font-family:var(--display);font-weight:900;font-size:.82rem;padding:14px 10px;cursor:pointer;transition:.18s;border-right:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;align-items:center;gap:4px;position:relative}
+.pnav-btn:last-child{border-right:0}
+.pnav-btn:hover{background:rgba(255,255,255,.04);color:var(--text)}
+.pnav-btn.active{background:rgba(37,217,255,.07);color:var(--cyan)}
+.pnav-btn.active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2.5px;background:var(--cyan);border-radius:2px 2px 0 0}
+.pnav-level{font-size:.62rem;font-weight:700;opacity:.7;text-transform:uppercase;letter-spacing:.06em}
+.pnav-check{font-size:.72rem;margin-top:2px}
+
+/* LEGEND */
+.legend{display:flex;gap:10px;flex-wrap:wrap;background:rgba(18,4,42,.9);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:11px 16px;align-items:center}
+.legend-label{font-size:.62rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--muted2);flex-shrink:0}
+.leg-item{display:flex;align-items:center;gap:5px;font-size:.74rem;font-weight:700;white-space:nowrap}
+.leg-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+
+/* PAGE */
+.page{display:none}
+.page.active{display:block}
+
+/* CARD */
+.text-card{background:linear-gradient(145deg,rgba(18,4,42,.98),rgba(10,2,30,.96));border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.tc-header{padding:18px 24px 16px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.tc-level{font-family:var(--display);font-size:.7rem;font-weight:900;text-transform:uppercase;letter-spacing:.07em;border-radius:999px;padding:3px 13px;border:1.5px solid;flex-shrink:0}
+.tc-title{font-family:var(--display);font-size:1.05rem;font-weight:900}
+.tc-meta{display:flex;align-items:center;gap:8px;margin-left:auto;flex-wrap:wrap}
+.tc-score{font-size:.78rem;font-weight:800;color:var(--muted2);white-space:nowrap}
+.tc-restart{border:1px solid rgba(249,115,22,.35);border-radius:999px;padding:3px 11px;font-weight:800;font-family:var(--font);font-size:.68rem;cursor:pointer;background:rgba(249,115,22,.08);color:var(--cfui);transition:.13s}
+.tc-restart:hover{background:rgba(249,115,22,.2)}
+
+/* CHAPTER TABS */
+.chapter-tabs{display:flex;border-bottom:1px solid rgba(255,255,255,.06);overflow-x:auto;scrollbar-width:none}
+.chapter-tabs::-webkit-scrollbar{display:none}
+.ctab-btn{flex-shrink:0;border:0;background:transparent;color:var(--muted2);font-family:var(--font);font-size:.78rem;font-weight:700;padding:11px 18px;cursor:pointer;transition:.18s;border-bottom:2.5px solid transparent;white-space:nowrap}
+.ctab-btn:hover{color:var(--text)}
+.ctab-btn.active{color:var(--cyan);border-bottom-color:var(--cyan)}
+.ctab-btn.done{color:var(--good)}
+.ctab-btn.done.active{color:var(--good);border-bottom-color:var(--good)}
+
+/* CHAPTER PANEL */
+.chapter-panel{display:none;padding:24px 28px}
+.chapter-panel.visible{display:block}
+.chapter-intro{font-size:.8rem;color:var(--muted2);font-style:italic;padding:10px 14px;background:rgba(255,255,255,.03);border-radius:10px;border-left:3px solid rgba(255,255,255,.1);margin-bottom:18px;line-height:1.6}
+
+/* PARAGRAPH */
+.paragraph{font-size:1rem;line-height:2.2;color:var(--text);font-weight:500;margin-bottom:0}
+.paragraph br+br{display:block;margin-top:14px}
+
+/* DROPDOWN */
+.dd-wrap{display:inline-block;position:relative;vertical-align:middle;margin:0 1px}
+.dd-select{appearance:none;-webkit-appearance:none;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.14);border-radius:8px;color:var(--muted2);font-family:var(--display);font-size:.82rem;font-weight:900;padding:3px 26px 3px 10px;cursor:pointer;outline:none;transition:.15s;min-width:96px;text-align:center}
+.dd-select:focus{border-color:rgba(37,217,255,.45);background:rgba(37,217,255,.06)}
+.dd-select.correct{border-color:var(--good);background:rgba(34,197,94,.14);color:#86efac}
+.dd-select.wrong{border-color:var(--bad);background:rgba(239,68,68,.1);color:#fca5a5}
+.dd-select.answered{pointer-events:none}
+.dd-arrow{position:absolute;right:7px;top:50%;transform:translateY(-50%);font-size:.58rem;pointer-events:none}
+
+/* CHAPTER FOOTER */
+.chapter-footer{padding:0 28px 22px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.btn-verify{border:0;border-radius:10px;padding:8px 22px;font-weight:900;font-family:var(--display);font-size:.86rem;cursor:pointer;transition:.15s;background:linear-gradient(135deg,var(--cyan),#00bfff);color:#07111f}
+.btn-verify:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,217,255,.3)}
+.btn-verify:disabled{opacity:.35;cursor:default;transform:none;box-shadow:none}
+.ch-result{font-size:.82rem;font-weight:700;color:var(--muted2)}
+.ch-result.good{color:var(--good)}.ch-result.bad{color:var(--bad)}
+.btn-next-ch{border:1.5px solid rgba(37,217,255,.3);border-radius:10px;padding:7px 18px;font-weight:800;font-family:var(--display);font-size:.8rem;cursor:pointer;background:rgba(37,217,255,.08);color:var(--cyan);transition:.15s;display:none}
+.btn-next-ch:hover{background:rgba(37,217,255,.18)}
+.btn-next-ch.show{display:inline-block}
+
+/* KEY */
+.key-wrap{margin:0 28px 16px;display:none}
+.key-wrap.show{display:block}
+.key-title{font-size:.62rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--muted2);margin-bottom:8px;cursor:pointer;display:flex;align-items:center;gap:6px;padding:6px 0}
+.key-grid{display:flex;flex-direction:column;gap:5px}
+.key-grid-inner{display:none}
+.key-grid-inner.open{display:flex;flex-direction:column;gap:5px}
+.key-item{border-radius:9px;padding:8px 13px;font-size:.8rem;font-weight:600;border:1px solid;line-height:1.6;display:none}
+.key-item.show{display:block}
+.key-item strong{font-weight:900}
+.key-fui{background:rgba(249,115,22,.08);border-color:rgba(249,115,22,.25);color:var(--cfui)}
+.key-era{background:rgba(167,139,250,.08);border-color:rgba(167,139,250,.25);color:var(--cera)}
+.key-estuve{background:rgba(52,211,153,.07);border-color:rgba(52,211,153,.25);color:var(--cestuve)}
+.key-estaba{background:rgba(37,217,255,.07);border-color:rgba(37,217,255,.25);color:var(--cestaba)}
+
+/* INLINE ANSWER REVEAL */
+.inline-answer{display:inline-flex;align-items:center;gap:4px;vertical-align:middle;margin:0 2px;position:relative}
+.inline-word{font-family:var(--display);font-weight:900;font-size:.9rem;text-decoration:underline;text-decoration-style:wavy;text-underline-offset:3px;cursor:default}
+.inline-word.correct{text-decoration-color:var(--good)}
+.inline-word.wrong{text-decoration-color:var(--bad)}
+.inline-wrong-was{font-family:var(--display);font-size:.82rem;font-weight:900;text-decoration:line-through;opacity:.55;margin-right:2px}
+.info-btn{width:18px;height:18px;border-radius:50%;border:0;font-size:.65rem;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transition:.13s;font-family:var(--font);line-height:1}
+.info-btn:hover .info-tip{display:block}
+.info-tip{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:#0d0128;border:1.5px solid rgba(255,255,255,.15);border-radius:12px;padding:10px 13px;width:220px;font-size:.76rem;line-height:1.6;color:var(--text);font-family:var(--font);font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,.5);z-index:100;pointer-events:none;white-space:normal;text-align:left}
+.info-tip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:6px solid transparent;border-top-color:#0d0128}
+.info-tip strong{color:var(--cyan);display:block;margin-bottom:3px;font-size:.78rem}
+
+/* TRANSLATION */
+.trans-wrap{margin:0 28px 22px;border-radius:13px;overflow:hidden;border:1px solid rgba(255,255,255,.07)}
+.trans-header{background:rgba(255,255,255,.04);padding:9px 16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none;transition:.13s}
+.trans-header:hover{background:rgba(255,255,255,.07)}
+.trans-title{font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--muted2);display:flex;align-items:center;gap:6px}
+.trans-chevron{font-size:.65rem;color:var(--muted2);transition:.2s}
+.trans-chevron.open{transform:rotate(180deg)}
+.trans-body{display:none;padding:18px;background:rgba(0,0,0,.18);border-top:1px solid rgba(255,255,255,.05)}
+.trans-body.visible{display:block}
+.trans-text{font-size:.9rem;line-height:1.95;color:var(--muted)}
+.trans-text p{margin-bottom:12px}.trans-text p:last-child{margin-bottom:0}
+.hi-fui{color:var(--cfui);font-weight:800}
+.hi-era{color:var(--cera);font-weight:800}
+.hi-estuve{color:var(--cestuve);font-weight:800}
+.hi-estaba{color:var(--cestaba);font-weight:800}
+
+/* TOTAL SCORE */
+.total-score{background:rgba(18,4,42,.9);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:12px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.ts-label{font-size:.64rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:var(--muted2);flex-shrink:0}
+.ts-pill{border-radius:999px;padding:3px 12px;font-size:.75rem;font-weight:800;border:1px solid}
+.ts-pct{margin-left:auto;font-family:var(--display);font-size:1.1rem;font-weight:900;color:var(--cyan)}
+
+.creator{text-align:center;color:#4a4d78;font-size:.74rem;font-weight:700;margin-top:6px}
+.creator span{color:var(--magenta2)}
+@media(max-width:580px){.chapter-panel{padding:18px 16px}.chapter-footer{padding:0 16px 18px}.key-wrap{margin:0 16px 16px}.trans-wrap{margin:0 16px 18px}.paragraph{font-size:.93rem;line-height:2.1}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="hero">
+  <div class="hero-in">
+    <div class="hero-top">
+      <div class="logo-box">YMF</div>
+      <div>
+        <h1>Fui · Era · Estuve · Estaba</h1>
+        <p>SER &amp; ESTAR in the past · 3 graded texts · Multiple subjects · No vosotros · A2–B1</p>
+      </div>
+    </div>
+    <div class="badges">
+      <span class="badge" style="border-color:rgba(249,115,22,.4);color:var(--cfui)">🟠 FUI/FUE/FUISTE — ser, preterite</span>
+      <span class="badge" style="border-color:rgba(167,139,250,.4);color:var(--cera)">🟣 ERA/ERAS/ERAN — ser, imperfect</span>
+      <span class="badge" style="border-color:rgba(52,211,153,.4);color:var(--cestuve)">🟢 ESTUVE/ESTUVO — estar, preterite</span>
+      <span class="badge" style="border-color:rgba(37,217,255,.4);color:var(--cestaba)">🔵 ESTABA/ESTABAN — estar, imperfect</span>
+      <span class="badge">By Carlos &amp; Denisse</span>
+    </div>
+  </div>
+</header>
+<!-- PAGE NAV -->
+<div class="page-nav" id="pageNav"></div>
+<!-- LEGEND -->
+<div class="legend">
+  <span class="legend-label">Colors:</span>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--cfui)"></div>FUI/FUE = ser preterite</div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--cera)"></div>ERA/ERAN = ser imperfect</div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--cestuve)"></div>ESTUVE/ESTUVO = estar preterite</div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--cestaba)"></div>ESTABA/ESTABAN = estar imperfect</div>
+</div>
+<!-- TOTAL SCORE -->
+<div class="total-score">
+  <span class="ts-label">Total progress</span>
+  <span class="ts-pill" style="background:rgba(34,197,94,.1);border-color:rgba(34,197,94,.3);color:#86efac" id="tsCorrect">0 correct</span>
+  <span class="ts-pill" style="background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.25);color:#fca5a5" id="tsWrong">0 wrong</span>
+  <span class="ts-pct" id="tsPct">—</span>
+</div>
+<!-- PAGES -->
+<div id="pages"></div>
+<p class="creator">By <span>Carlos &amp; Denisse</span> · yourmexicanfriend.com</p>
+</div>
+<script>
+// Each TEXT has chapters (paragraphs). Each chapter has segments (strings + blank objects).
+// blank: {id, answer, type:'fui'|'era'|'estuve'|'estaba', opts:[4 options]}
+// type matches the CSS class for color.
+
+const PAGES = [
+// ═══════════════════════════════════════════════════════════════════════════════
+// PAGE 1 — FÁCIL A2 — "La familia Mendoza" — 3 CHAPTERS
+// ═══════════════════════════════════════════════════════════════════════════════
+{
+  id:'p1', level:'A2', difficulty:'Easy', levelColor:'var(--cestuve)',
+  title:'La familia Mendoza',
+  subtitle:'A large Mexican family — their personalities, a special Sunday, and how they remembered it years later.',
+  chapters:[
+    {
+      id:'p1c1', label:'I. La familia',
+      intro:'Meet the Mendoza family. Focus on ERA for descriptions, identity, characteristics, and background; use ESTABA for ongoing states, locations, and conditions.',
+      segments:[
+        'La familia Mendoza ',{id:'a1',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' una familia numerosa del Estado de México. El papá, don Roberto, ',
+        {id:'a2',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' mecánico de profesión y ',{id:'a3',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' un hombre muy trabajador. Todos los días ',
+        {id:'a4',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' en el taller desde las siete de la mañana hasta que oscurecía. Cuando llegaba a casa, siempre ',
+        {id:'a5',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' cansado, pero nunca de mal humor. La mamá, doña Carmen, ',
+        {id:'a6',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' maestra de primaria en la escuela del barrio. ',
+        {id:'a7',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' muy paciente con sus alumnos y también con sus hijos. Por las tardes, cuando llegaba a casa, siempre ',
+        {id:'a8',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' lista para escucharlos, aunque también ',
+        {id:'a9',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' cansada. Los hijos ',
+        {id:'a10',answer:'eran',type:'era',opts:['eran','fueron','estaban','estuvieron']},
+        ' tres: Rodrigo, Paola y el pequeño Emilio. Rodrigo ',
+        {id:'a11',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' el mayor — ',{id:'a12',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' serio y responsable. Paola ',{id:'a13',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' la del medio, la más sociable, y siempre ',
+        {id:'a14',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' riendo y haciendo chistes. Y Emilio, el chiquito, ',
+        {id:'a15',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' el consentido de todos, y lo sabía perfectamente.',
+      ],
+      translation:`<p>The Mendoza family <span class="hi-era">was</span> a large family from the State of Mexico. The father, don Roberto, <span class="hi-era">was</span> a mechanic by profession and <span class="hi-era">was</span> a very hard-working man. Every day he <span class="hi-estaba">was</span> at the workshop from seven in the morning until dark. When he got home, he was always <span class="hi-estaba">tired</span>, but never in a bad mood. The mother, doña Carmen, <span class="hi-era">was</span> an elementary school teacher at the neighborhood school. She <span class="hi-era">was</span> very patient with her students and also with her children. In the afternoons, when she got home, she was always <span class="hi-estaba">ready</span> to listen to them, although she was also <span class="hi-estaba">tired</span>. There <span class="hi-era">were</span> three children: Rodrigo, Paola and little Emilio. Rodrigo <span class="hi-era">was</span> the oldest — he <span class="hi-era">was</span> serious and responsible. Paola <span class="hi-era">was</span> the middle one, the most outgoing, and always <span class="hi-estaba">laughing</span> and making jokes. And Emilio, the little one, <span class="hi-era">was</span> everyone's favorite — and he knew it perfectly well.</p>`,
+    },
+    {
+      id:'p1c2', label:'II. El domingo especial',
+      intro:'One specific Sunday together. Notice how FUE marks completed events and ESTUVO marks states with a clear time limit.',
+      segments:[
+        'Un domingo, la familia decidió ir al parque del pueblo. ',
+        {id:'b1',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
+        ' un día muy especial porque hacía meses que no salían todos juntos. ',
+        'Don Roberto ',{id:'b2',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
+        ' toda la mañana preparando la comida para llevar — arroz, frijoles y pollo. ',
+        'Doña Carmen ',{id:'b3',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' muy contenta mientras empacaba las cosas en una bolsa grande. ',
+        'El parque ',{id:'b4',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' lleno de familias ese día y hacía un sol perfecto. ',
+        'Los niños ',{id:'b5',answer:'estuvieron',type:'estuve',opts:['estuvieron','eran','fueron','estaban']},
+        ' corriendo y jugando durante horas sin parar. ',
+        'Rodrigo, que normalmente ',{id:'b6',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' muy serio, ese día ',{id:'b7',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
+        ' más relajado y sonriente que nunca. ',
+        'Paola ',{id:'b8',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
+        ' la primera en encontrar un lugar perfecto bajo un árbol grande. ',
+        'Emilio ',{id:'b9',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
+        ' dormido casi dos horas en los brazos de su papá mientras todos comían. ',
+        'Cuando llegó la noche y tuvieron que volver a casa, todos ',
+        {id:'b10',answer:'estaban',type:'estaba',opts:['estaban','eran','estuvieron','fueron']},
+        ' cansados pero muy felices. Para don Roberto, ese domingo ',
+        {id:'b11',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
+        ' uno de los mejores días del año, aunque nunca lo dijo en voz alta.',
+      ],
+      translation:`<p>One Sunday, the family decided to go to the neighborhood park. It <span class="hi-fui">was</span> a very special day because it had been months since they all went out together. Don Roberto <span class="hi-estuve">was (busy)</span> all morning preparing food to take — rice, beans and chicken. Doña Carmen <span class="hi-estaba">was</span> very happy while she packed things up in a big bag. The park <span class="hi-estaba">was</span> full of families that day and the sun was perfect. The children <span class="hi-estuve">were</span> running and playing for hours without stopping. Rodrigo, who was normally <span class="hi-era">very serious</span>, that day <span class="hi-estuve">was</span> more relaxed and smiley than ever. Paola <span class="hi-fui">was</span> the first to find a perfect spot under a big tree. Emilio <span class="hi-estuve">was</span> asleep for almost two hours in his dad's arms while everyone ate. When night came and they had to go back home, everyone <span class="hi-estaba">was</span> tired but very happy. For don Roberto, that Sunday <span class="hi-fui">was</span> one of the best days of the year — though he never said it out loud.</p>`,
+    },
+    {
+      id:'p1c3', label:'III. Los recuerdos',
+      intro:'Years later, looking back. Mostly imperfect (how things used to be) with key preterites for completed events.',
+      segments:[
+        'Años después, cuando los hijos ya ',{id:'c1',answer:'eran',type:'era',opts:['eran','fueron','estaban','estuvieron']},
+        ' adultos y vivían en diferentes ciudades, todos recordaban ese domingo con mucho cariño. ',
+        'Rodrigo siempre decía que su familia ',{id:'c2',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' humilde y unida, aunque tenía poco dinero. ',
+        'Recordaba que su papá nunca ',{id:'c3',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' de mal humor cuando ',{id:'c4',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' con la familia, aunque sí ',{id:'c5',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' cansado. Paola nunca olvidó cómo su mamá ',
+        {id:'c6',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' siempre presente, aunque también ',{id:'c7',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' agotada. ',
+        'Emilio, el más chico, ',{id:'c8',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
+        ' el primero en casarse y tener hijos. En su primera cena de Navidad como papá, les dijo a todos: ',
+        '"Mi familia ',{id:'c9',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' humilde, pero mis papás siempre ',{id:'c10',answer:'estaban',type:'estaba',opts:['estaban','eran','estuvieron','fueron']},
+        ' ahí para nosotros. Eso ',{id:'c11',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
+        ' lo más importante que nos pudieron dar." ',
+        'Don Roberto, que para entonces ya ',{id:'c12',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' mayor y tenía dificultades para oír, escuchó esas palabras y ',
+        {id:'c13',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
+        ' llorando en silencio un buen rato. Doña Carmen le tomó la mano y los dos ',
+        {id:'c14',answer:'estuvieron',type:'estuve',opts:['estuvieron','eran','fueron','estaban']},
+        ' así, callados, por un momento que ninguno de los dos olvidaría.',
+      ],
+      translation:`<p>Years later, when the children <span class="hi-era">were</span> already adults and lived in different cities, they all remembered that Sunday fondly. Rodrigo always used to say that his family <span class="hi-era">was</span> humble and close-knit, even though they had little money. He remembered that his dad was never <span class="hi-estaba">in a bad mood</span> when he <span class="hi-estaba">was</span> with the family, even though he <span class="hi-estaba">was</span> tired. Paola never forgot how her mom <span class="hi-estaba">was</span> always present, even though she was also <span class="hi-estaba">exhausted</span>. Emilio, the youngest, <span class="hi-fui">was</span> the first to get married and have children. At his first Christmas dinner as a dad, he told everyone: "My family <span class="hi-era">was</span> humble, but my parents <span class="hi-estaba">were</span> always there for us. That <span class="hi-fui">was</span> the most important thing they could give us." Don Roberto, who by then <span class="hi-era">was</span> already an older man and had trouble hearing, heard those words and <span class="hi-estuve">was</span> crying silently for a good while. Doña Carmen took his hand and the two of them <span class="hi-estuve">were</span> like that, quiet, for a moment that neither of them would ever forget.</p>`,
+    },
+  ],
+},
+// ═══════════════════════════════════════════════════════════════════════════════
+// PAGE 2 — INTERMEDIO A2-B1 — "El restaurante de la abuela" — 4 CHAPTERS
+// ═══════════════════════════════════════════════════════════════════════════════
+{
+  id:'p2', level:'A2–B1', difficulty:'Intermediate', levelColor:'var(--cera)',
+  title:'El restaurante de la abuela',
+  subtitle:'The story of Esperanza — a woman who left everything behind and built something extraordinary from nothing.',
+  chapters:[
+    {
+      id:'p2c1', label:'I. Los comienzos',
+      intro:'Background and origins. ERA describes who she was; ESTABA describes her situations and emotional states.',
+      segments:[
+        'El restaurante de mi abuela ',{id:'d1',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' un lugar pequeño en una esquina del centro de Cuernavaca. ',
+        'Mi abuela, Esperanza, ',{id:'d2',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' originaria de un pueblo pequeño de Guerrero. Llegó a la ciudad a los diecinueve años sin conocer a nadie y con muy poco dinero. ',
+        'Cuando llegó, ',{id:'d3',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' completamente sola y solo traía consigo una maleta desgastada y una libreta llena de recetas escritas a mano. ',
+        {id:'d4',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' valiente, aunque también ',{id:'d5',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' asustada por dentro. ',
+        'Sus primeros años en Cuernavaca ',{id:'d6',answer:'fueron',type:'fui',opts:['fueron','eran','estuvieron','estaban']},
+        ' muy difíciles. ',{id:'d7',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
+        ' trabajando en casas ajenas durante casi cinco años cocinando y limpiando para ahorrar dinero. ',
+        'El local donde finalmente abrió el restaurante ',{id:'d8',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' muy pequeño — solo cabían cuatro mesas y una cocina angosta. ',
+        {id:'d9',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' en una calle secundaria que casi nadie conocía. Pero mi abuela ',
+        {id:'d10',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' terca como ella sola y ',{id:'d11',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' completamente segura de que la comida hablaría por sí sola.',
+      ],
+      translation:`<p>My grandmother's restaurant <span class="hi-era">was</span> a small place on a corner of downtown Cuernavaca. My grandmother, Esperanza, <span class="hi-era">was</span> originally from a small town in Guerrero. She arrived in the city at nineteen without knowing anyone and with very little money. When she arrived, she <span class="hi-estaba">was</span> completely alone and only brought a worn-out suitcase and a notebook full of handwritten recipes. She <span class="hi-era">was</span> brave, although she was also <span class="hi-estaba">scared</span> on the inside. Her first years in Cuernavaca <span class="hi-fui">were</span> very difficult. She <span class="hi-estuve">was (busy)</span> working in other people's homes for almost five years — cooking and cleaning — to save money. The place where she finally opened the restaurant <span class="hi-era">was</span> very small — only four tables and a narrow kitchen could fit. It <span class="hi-estaba">was</span> on a side street that almost nobody knew. But my grandmother <span class="hi-era">was</span> as stubborn as they come and <span class="hi-estaba">was</span> completely sure that the food would speak for itself.</p>`,
+    },
+    {
+      id:'p2c2', label:'II. El éxito',
+      intro:'The restaurant takes off. Mix of ESTUVO (time spent doing something) and FUE (turning points and evaluations).',
+      segments:[
+        'El primer año ',{id:'e1',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
+        ' complicado y lleno de dudas. Durante el segundo año, la situación empezó a cambiar: la fama del mole negro de mi abuela comenzó a crecer de boca en boca. ',
+        'Un periodista de Cuernavaca ',{id:'e3',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
+        ' comiendo ahí un martes por casualidad y al día siguiente publicó una reseña emocionada en el periódico local. ',
+        'Ese artículo ',{id:'e4',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
+        ' el parteaguas. De repente, el restaurante ',{id:'e5',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' lleno todos los días — al mediodía y en la noche. ',
+        'Mi abuela ',{id:'e6',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
+        ' cocinando prácticamente sola durante varios meses hasta que por fin pudo contratar ayuda. ',
+        'Los clientes ',{id:'e7',answer:'estaban',type:'estaba',opts:['estaban','eran','estuvieron','fueron']},
+        ' dispuestos a esperar hasta una hora en la banqueta con tal de conseguir una mesa. ',
+        'Para muchos en la ciudad, el restaurante de Esperanza ',{id:'e8',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
+        ' el mejor que habían conocido. Y no ',{id:'e9',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' por el local — el local seguía siendo pequeño y sin decoración elegante. ',
+        {id:'e10',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' la sazón de mi abuela, que no ',{id:'e11',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' de este mundo. Algo en esa comida hacía que la gente volviera semana tras semana.',
+      ],
+      translation:`<p>The first year <span class="hi-fui">was</span> complicated and full of doubts. During the second year, things began to change: the fame of my grandmother's mole negro began to spread by word of mouth. A journalist from Cuernavaca <span class="hi-estuve">was (there)</span> eating by chance one Tuesday and the next day published an enthusiastic review in the local newspaper. That article <span class="hi-fui">was</span> the turning point. Suddenly, the restaurant <span class="hi-estaba">was</span> full every day — at lunch and at dinner. My grandmother <span class="hi-estuve">was (busy)</span> cooking practically alone for several months until she could finally hire help. Customers <span class="hi-estaba">were</span> willing to wait up to an hour on the sidewalk just to get a table. For many in the city, Esperanza's restaurant <span class="hi-fui">was</span> the best they had ever known. And it <span class="hi-era">wasn't</span> because of the place — the place was still small and without elegant decoration. It <span class="hi-era">was</span> my grandmother's seasoning, which <span class="hi-era">wasn't</span> of this world. Something in that food made people come back week after week.</p>`,
+    },
+    {
+      id:'p2c3', label:'III. El precio del éxito',
+      intro:'What success cost her personally and as a mother. ESTABA for emotional states; ESTUVO for states with a defined end.',
+      segments:[
+        'Pero el éxito tuvo un precio. Mi abuela ',{id:'f1',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' agotada casi siempre. Sus jornadas en la cocina ',{id:'f2',answer:'eran',type:'era',opts:['eran','fueron','estaban','estuvieron']},
+        ' de doce horas o más, seis días a la semana. Muchas noches, cuando por fin cerraba el restaurante, ',
+        {id:'f3',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' tan cansada que se quedaba dormida en la silla de la cocina antes de llegar a su cuarto. ',
+        'Un invierno muy frío, ',{id:'f4',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
+        ' enferma de pulmonía casi tres semanas y tuvo que cerrar el restaurante por primera vez. ',
+        'Para ella, eso ',{id:'f5',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
+        ' lo más duro — no la enfermedad en sí, sino cerrar las puertas. ',
+        'Mi mamá recuerda que cuando ',{id:'f6',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' niña, su mamá —mi abuela— nunca ',
+        {id:'f7',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' en casa para la cena. El restaurante siempre ',
+        {id:'f8',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' lo primero. Las noches en que sí ',{id:'f9',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' en casa, todo ',{id:'f10',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' diferente — había más ruido, más risa, más vida. Mi mamá dice que la casa ',
+        {id:'f11',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' otro lugar cuando ella ',{id:'f12',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' ahí. Pero esas noches ',{id:'f13',answer:'eran',type:'era',opts:['eran','fueron','estaban','estuvieron']},
+        ' pocas.',
+      ],
+      translation:`<p>But success had a price. My grandmother <span class="hi-estaba">was</span> exhausted almost always. Her shifts in the kitchen <span class="hi-era">were</span> twelve hours or more, six days a week. Many nights, when she finally closed the restaurant, she <span class="hi-estaba">was</span> so tired that she fell asleep in the kitchen chair before reaching her room. One very cold winter, she <span class="hi-estuve">was (sick)</span> with pneumonia for almost three weeks and had to close the restaurant for the first time. For her, that <span class="hi-fui">was</span> the hardest part — not the illness itself, but closing the doors. My mom remembers that when she <span class="hi-era">was</span> a little girl, her mom — my grandmother — was never <span class="hi-estaba">home</span> for dinner. The restaurant always <span class="hi-era">came</span> first. On the nights when she <span class="hi-estaba">was</span> home, everything <span class="hi-era">was</span> different — there was more noise, more laughter, more life. My mom says the house <span class="hi-era">was</span> a different place when she <span class="hi-estaba">was</span> there. But those nights <span class="hi-era">were</span> few.</p>`,
+    },
+    {
+      id:'p2c4', label:'IV. El legado',
+      intro:'The final chapter — what she left behind. All four forms appear. Think carefully about each one.',
+      segments:[
+        'Mi abuela murió a los ochenta y dos años, un lunes por la noche. El restaurante ',
+        {id:'g1',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
+        ' suyo hasta el último día — nunca quiso venderlo ni traspasarlo a nadie. ',
+        'Sus últimos años ',{id:'g2',answer:'estuvieron',type:'estuve',opts:['estuvieron','eran','fueron','estaban']},
+        ' marcados por la artritis y los achaques de la edad, pero nunca dejó de cocinar. ',
+        'El día que murió, dicen que ',{id:'g3',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' cocinando un caldo cuando se sintió mal y tuvo que sentarse. ',
+        'Esa tarde ya no ',{id:'g4',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' en condiciones de continuar. Llamaron a la familia, y ella ',
+        {id:'g5',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
+        ' rodeada de todos los que quería esa última noche. ',
+        'En el velorio, mucha gente que nunca había conocido a su familia ',
+        {id:'g6',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
+        ' ahí — clientes de muchos años, exempleados y el periodista que había escrito sobre ella. ',
+        'Todos decían lo mismo: que Esperanza ',
+        {id:'g7',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' una mujer extraordinaria, que su restaurante no ',
+        {id:'g8',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' solo un restaurante — ',{id:'g9',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' un lugar donde la gente ',{id:'g10',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' a gusto, ',{id:'g11',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' como en casa. Y que Esperanza ',{id:'g12',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
+        ' exactamente eso para todos: un hogar para los que no tenían uno. ',
+        'Mi mamá cerró el restaurante esa semana. Luego lo abrió de nuevo. ',
+        'Dijo que cerrarlo para siempre no ',{id:'g13',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' una opción.',
+      ],
+      translation:`<p>My grandmother died at eighty-two, on a Monday night. The restaurant <span class="hi-fui">was</span> hers until the last day — she never wanted to sell it or transfer it to anyone. Her last years <span class="hi-estuve">were</span> marked by arthritis and the ailments of old age, but she never stopped cooking. The day she died, they say she <span class="hi-estaba">was (in the middle of)</span> cooking a broth when she felt ill and had to sit down. That afternoon she <span class="hi-estaba">was</span> no longer in condition to continue. They called the family, and she <span class="hi-estuve">was</span> surrounded by everyone she loved that last night. At the wake, many people who had never known her family <span class="hi-estuve">were</span> there — long-time customers, former employees, and the journalist who had written about her. Everyone said the same thing: that Esperanza <span class="hi-era">was</span> an extraordinary woman, that her restaurant <span class="hi-era">wasn't</span> just a restaurant — it <span class="hi-era">was</span> a place where people <span class="hi-estaba">felt</span> comfortable and <span class="hi-estaba">felt</span> at home. And that Esperanza <span class="hi-fui">was</span> exactly that for everyone: a home for those who didn't have one. My mom closed the restaurant that week. Then she opened it again. She said closing it forever <span class="hi-era">wasn't</span> an option.</p>`,
+    },
+  ],
+},
+// ═══════════════════════════════════════════════════════════════════════════════
+// PAGE 3 — AVANZADO B1 — "El año que cambió todo" — 5 CHAPTERS
+// ═══════════════════════════════════════════════════════════════════════════════
+{
+  id:'p3', level:'B1', difficulty:'Advanced', levelColor:'var(--cfui)',
+  title:'El año que cambió todo',
+  subtitle:'Daniel, 28, leaves a stable career to travel alone for a year — and discovers who he really is.',
+  chapters:[
+    {
+      id:'p3c1', label:'I. La vida de antes',
+      intro:'Daniel\'s life before the trip. Dense imperfect — habitual states, descriptions, background context throughout.',
+      segments:[
+        'Daniel ',{id:'h1',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' programador de software en una empresa de tecnología en Monterrey. Tenía veintiocho años y, desde afuera, su vida ',
+        {id:'h2',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' perfecta: un trabajo bien pagado, un departamento propio y un coche nuevo. ',
+        {id:'h3',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' bueno en su trabajo — uno de los mejores del equipo — pero por dentro siempre ',
+        {id:'h4',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' inquieto, como si le faltara algo que no sabía nombrar. Su departamento ',
+        {id:'h5',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' pequeño pero cómodo, y ',{id:'h6',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' en una colonia tranquila a diez minutos del trabajo. Daniel ',
+        {id:'h7',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' soltero, ordenado y tenía una rutina fija que raramente rompía: café a las seis, reunión a las nueve, gimnasio a las siete. ',
+        'Sus amigos decían que ',{id:'h8',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' demasiado serio para su edad y que siempre ',
+        {id:'h9',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' pensando en el futuro en lugar de disfrutar el presente. ',
+        'Su mamá pensaba que ',{id:'h10',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' bien así, aunque en el fondo sabía que Daniel ',
+        {id:'h11',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' buscando algo que todavía no encontraba. El día de su cumpleaños número veintiocho, se despertó temprano y pensó en voz alta: ',
+        '"Todo ',{id:'h12',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' bien. Pero eso no ',{id:'h13',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' suficiente."',
+      ],
+      translation:`<p>Daniel <span class="hi-era">was</span> a software programmer at a technology company in Monterrey. He was twenty-eight years old and, from the outside, his life <span class="hi-era">was</span> perfect: a well-paying job, his own apartment and a new car. He <span class="hi-era">was</span> good at his work — one of the best on the team — but inside he was always <span class="hi-estaba">restless</span>, as if something was missing that he couldn't name. His apartment <span class="hi-era">was</span> small but comfortable, and <span class="hi-estaba">was</span> in a quiet neighborhood ten minutes from work. Daniel <span class="hi-era">was</span> single, organized and had a fixed routine he rarely broke: coffee at six, meeting at nine, gym at seven. His friends said he <span class="hi-era">was</span> too serious for his age and <span class="hi-estaba">was</span> always thinking about the future instead of enjoying the present. His mom thought he <span class="hi-estaba">was</span> fine like that, although deep down she knew Daniel <span class="hi-estaba">was</span> looking for something he hadn't yet found. On the day of his twenty-eighth birthday, he woke up early and thought out loud: "Everything <span class="hi-estaba">was</span> fine. But that <span class="hi-era">wasn't</span> enough."</p>`,
+    },
+    {
+      id:'p3c2', label:'II. La renuncia',
+      intro:'The day he quit and the weeks right after. Key preterites mark the turning points; imperfects give the context.',
+      segments:[
+        'Dos semanas después, Daniel entró a la oficina de su jefe y renunció. ',
+        {id:'i1',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
+        ' una conversación corta pero incómoda. Su jefe, que ',
+        {id:'i2',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' un hombre de pocas palabras, le dijo que ',
+        {id:'i3',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' un error que lamentaría. Daniel escuchó todo sin decir nada. ',
+        'Cuando salió de esa oficina, ',{id:'i4',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' temblando — no de miedo, sino de algo parecido a la emoción. ',
+        'Esa tarde ',{id:'i5',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
+        ' en su departamento durante horas con una hoja en blanco, haciendo y deshaciendo listas. ',
+        'El plan ',{id:'i6',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' simple en papel: viajar solo durante un año con los ahorros que tenía. La primera parada ',
+        {id:'i7',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
+        ' Oaxaca, luego Chiapas, luego Guatemala. Sin hotel reservado, sin itinerario fijo. ',
+        'Sus amigos ',{id:'i8',answer:'estaban',type:'estaba',opts:['estaban','eran','estuvieron','fueron']},
+        ' entre sorprendidos y preocupados — nadie entendía por qué alguien que ',
+        {id:'i9',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' tan estable y cómodo iba a dejarlo todo así. Su jefa de recursos humanos, que ',
+        {id:'i10',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' la más directa del equipo, le dijo que lo que tenía ahí no ',
+        {id:'i11',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' fácil de encontrar. Él asintió. Lo sabía. Y aun así se fue.',
+      ],
+      translation:`<p>Two weeks later, Daniel walked into his boss's office and quit. It <span class="hi-fui">was</span> a short but uncomfortable conversation. His boss, who <span class="hi-era">was</span> a man of few words, told him it <span class="hi-era">was</span> a mistake he would regret. Daniel listened to everything without saying anything. When he left that office, he <span class="hi-estaba">was</span> trembling — not from fear, but from something resembling excitement. That afternoon he <span class="hi-estuve">was</span> in his apartment for hours with a blank sheet of paper, making and unmaking lists. The plan <span class="hi-era">was</span> simple on paper: travel alone for one year with his savings. The first stop <span class="hi-fui">was</span> Oaxaca, then Chiapas, then Guatemala. No hotel reserved, no fixed itinerary. His friends <span class="hi-estaba">were</span> somewhere between surprised and worried — nobody understood why someone who <span class="hi-era">was</span> so stable and comfortable would leave everything like that. His HR manager, who <span class="hi-era">was</span> the most direct person on the team, told him that what he had there <span class="hi-era">wasn't</span> easy to find. He nodded. He knew. And he left anyway.</p>`,
+    },
+    {
+      id:'p3c3', label:'III. El choque',
+      intro:'The first months are hard. Complex mix — imperfect for background, preterite for key moments and evaluations.',
+      segments:[
+        'Los primeros meses ',{id:'j1',answer:'fueron',type:'fui',opts:['fueron','eran','estuvieron','estaban']},
+        ' un choque real. Daniel, que siempre había sido muy ordenado y predecible, de repente ',{id:'j3',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' durmiendo en hostales con desconocidos, comiendo lo que encontrara y cargando todo en una mochila. ',
+        'Al principio ',{id:'j4',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' incómodo con la incertidumbre — con no saber exactamente dónde estaría al día siguiente ni cuánto dinero gastaría esa semana. ',
+        'Hubo momentos en que ',{id:'j6',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
+        ' a punto de comprar un boleto de regreso y admitir que había sido un error. Pero no lo hizo. ',
+        'En Chiapas, ',{id:'j8',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
+        ' tres semanas en una comunidad indígena pequeña, ayudando con clases de inglés básico. ',
+        {id:'j9',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
+        ' la primera vez en su vida que hacía algo completamente desinteresado, sin esperar nada a cambio. ',
+        'Los niños de la comunidad ',{id:'j10',answer:'eran',type:'era',opts:['eran','fueron','estaban','estuvieron']},
+        ' curiosos y alegres. Daniel ',{id:'j11',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' convencido de que aprendió más de ellos que ellos de él. Cuando se fue de ese pueblo, ',
+        {id:'j12',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' diferente — todavía no sabía cómo explicarlo, pero ',{id:'j13',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' otro.',
+      ],
+      translation:`<p>The first months <span class="hi-fui">were</span> a real shock. Daniel, who had always been very organized and predictable, was suddenly <span class="hi-estaba">sleeping</span> in hostels with strangers, eating whatever he could find and carrying everything in a backpack. At first he <span class="hi-estaba">was</span> uncomfortable with uncertainty — with not knowing exactly where he would be the next day or how much money he would spend that week. There were moments when he <span class="hi-estuve">was</span> on the verge of buying a ticket back and admitting it had been a mistake. But he didn't. In Chiapas, he <span class="hi-estuve">was (there for)</span> three weeks in a small indigenous community, helping with basic English classes. It <span class="hi-fui">was</span> the first time in his life he did something completely selfless, without expecting anything in return. The children in the community <span class="hi-era">were</span> curious and joyful. Daniel <span class="hi-estaba">was</span> convinced he learned more from them than they did from him. When he left that town, he <span class="hi-estaba">was</span> different — he still didn't know how to explain it, but he <span class="hi-era">was</span> someone else.</p>`,
+    },
+    {
+      id:'p3c4', label:'IV. Marta y Guatemala',
+      intro:'A connection on the road. Imperfects for character descriptions; preterites for the completed relationship arc.',
+      segments:[
+        'En Guatemala conoció a Marta, una chica de Sevilla que también ',
+        {id:'k1',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' viajando sola. La conoció en un mercado de Antigua un miércoles por la tarde. Ella ',
+        {id:'k2',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' discutiendo con un vendedor en un español rapidísimo que Daniel apenas entendía. ',
+        {id:'k3',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' directa, graciosa y sin pelos en la lengua. Los dos ',
+        {id:'k4',answer:'estuvieron',type:'estuve',opts:['estuvieron','eran','fueron','estaban']},
+        ' juntos casi un mes recorriendo el país — volcanes, lagos, ruinas mayas. ',
+        'Marta ',{id:'k5',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' fotógrafa y ',{id:'k6',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' trabajando en un proyecto documental sobre migrantes centroamericanos. ',
+        {id:'k7',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' la primera persona que Daniel conoció en el viaje con quien podía hablar de verdad. ',
+        'Muchas noches ',{id:'k8',answer:'estuvieron',type:'estuve',opts:['estuvieron','eran','fueron','estaban']},
+        ' hablando hasta las dos o las tres de la mañana sobre sus vidas, sus miedos, lo que querían y lo que habían dejado atrás. ',
+        'Cuando Marta se fue a Costa Rica a continuar su proyecto, ',
+        {id:'k9',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
+        ' una despedida difícil. Daniel ',{id:'k10',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
+        ' triste un par de días. Luego siguió. Pero Marta ',
+        {id:'k11',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
+        ' una de esas personas que te cambian aunque solo las conozcas durante un mes.',
+      ],
+      translation:`<p>In Guatemala he met Marta, a girl from Seville who also <span class="hi-estaba">was</span> traveling alone. He met her at a market in Antigua on a Wednesday afternoon. She <span class="hi-estaba">was</span> arguing with a vendor in a very fast Spanish that Daniel could barely understand. She <span class="hi-era">was</span> direct, funny and straightforward. The two of them <span class="hi-estuve">were</span> together for almost a month traveling through the country — volcanoes, lakes, Mayan ruins. Marta <span class="hi-era">was</span> a photographer and <span class="hi-estaba">was</span> working on a documentary project about Central American migrants. She <span class="hi-era">was</span> the first person Daniel met on the trip with whom he could really talk. Many nights they <span class="hi-estuve">were</span> talking until two or three in the morning about their lives, their fears, what they wanted and what they had left behind. When Marta left for Costa Rica to continue her project, it <span class="hi-fui">was</span> a difficult goodbye. Daniel <span class="hi-estuve">was</span> sad for a couple of days. Then he kept going. But Marta <span class="hi-fui">was</span> one of those people who can change you even if you only know them for a month.</p>`,
+    },
+    {
+      id:'p3c5', label:'V. La vuelta',
+      intro:'Coming back and building something new. All four forms in complex, layered sentences. Think carefully.',
+      segments:[
+        'Cuando Daniel volvió a Monterrey, ',{id:'l1',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' enero y hacía un frío inusual. Su departamento ',{id:'l2',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' tal como lo había dejado — ordenado, silencioso, igual. Pero Daniel ya no ',
+        {id:'l3',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' el mismo. Sus amigos notaron el cambio de inmediato. Antes, Daniel ',
+        {id:'l4',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' el que menos hablaba en las reuniones — el que siempre ',
+        {id:'l5',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' al margen, escuchando. Ahora tenía historias y tenía opiniones. ',
+        'La empresa donde antes había trabajado lo llamó para ofrecerle su puesto de vuelta con un aumento. ',
+        {id:'l7',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
+        ' una llamada difícil de rechazar — el salario ',
+        {id:'l8',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' bueno y la posición ',{id:'l9',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' cómoda. Pero Daniel dijo que no. ',
+        'En cambio, decidió empezar un proyecto propio — una plataforma de aprendizaje de idiomas para comunidades rurales como la que había conocido en Chiapas. El día que registró la empresa, ',
+        {id:'l11',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' más asustado que nunca. Y también ',{id:'l12',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' más seguro de sí mismo que en toda su vida. ',
+        'El año del viaje ',{id:'l13',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
+        ' lo que necesitaba. No para encontrar respuestas — sino para aprender a vivir con las preguntas. ',
+        'Y lo mejor: ya no ',{id:'l14',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' inquieto. Por primera vez en mucho tiempo, ',
+        {id:'l15',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
+        ' bien. Y eso sí ',{id:'l16',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
+        ' suficiente.',
+      ],
+      translation:`<p>When Daniel returned to Monterrey, it <span class="hi-era">was</span> January and unusually cold. His apartment <span class="hi-estaba">was</span> just as he had left it — tidy, silent, the same. But Daniel was no longer <span class="hi-era">the same</span>. His friends noticed the change immediately. Before, Daniel <span class="hi-era">used to be</span> the one who talked least at gatherings — the one who was always <span class="hi-estaba">on the sidelines</span>, listening. Now he had stories and he had opinions. The company where he had previously worked called to offer his position back with a raise. It <span class="hi-fui">was</span> a call that was hard to turn down — the salary <span class="hi-era">was</span> good and the position <span class="hi-era">was</span> comfortable. But Daniel said no. Instead, he decided to start his own project — a language learning platform for rural communities like the one he had gotten to know in Chiapas. The day he registered the company, he <span class="hi-estaba">was</span> more scared than ever. And also <span class="hi-estaba">more confident</span> in himself than at any point in his life. The year of travel <span class="hi-fui">was</span> what he needed. Not to find answers — but to learn to live with the questions. And the best part: he was no longer <span class="hi-estaba">restless</span>. For the first time in a long time, he <span class="hi-estaba">was</span> okay. And that <span class="hi-era">was</span> enough.</p>`,
+    },
+  ],
+},
+];
+
+
+</script>
+<script>
+const TYPE_COLOR={fui:'var(--cfui)',era:'var(--cera)',estuve:'var(--cestuve)',estaba:'var(--cestaba)'};
+const TYPE_BG={fui:'rgba(249,115,22,.12)',era:'rgba(167,139,250,.12)',estuve:'rgba(52,211,153,.1)',estaba:'rgba(37,217,255,.1)'};
+let currentPage=0;
+const answered={};
+
+// ── BUILD ALL ──────────────────────────────────────────────────────────────────
+function init(){
+  buildPageNav();
+  buildPages();
+  showPage(0);
+  updateTotals();
+}
+
+function buildPageNav(){
+  const nav=document.getElementById('pageNav');
+  PAGES.forEach((p,i)=>{
+    const btn=document.createElement('button');
+    btn.className='pnav-btn'+(i===0?' active':'');
+    btn.id='pnavbtn_'+i;
+    btn.onclick=()=>showPage(i);
+    btn.innerHTML=`
+      <span style="font-size:.9rem">${['📗','📘','📙'][i]} Texto ${i+1}</span>
+      <span class="pnav-level" style="color:${p.levelColor}">${p.level} · ${p.difficulty}</span>
+      <span class="pnav-check" id="pnav_check_${i}"></span>`;
+    nav.appendChild(btn);
+  });
+}
+
+function showPage(idx){
+  currentPage=idx;
+  document.querySelectorAll('.page').forEach((el,i)=>{
+    el.classList.toggle('active',i===idx);
+  });
+  document.querySelectorAll('.pnav-btn').forEach((btn,i)=>{
+    btn.classList.toggle('active',i===idx);
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function buildPages(){
+  const container=document.getElementById('pages');
+  PAGES.forEach((page,pi)=>{
+    const pageEl=document.createElement('div');
+    pageEl.className='page';
+    pageEl.id='page_'+pi;
+    pageEl.appendChild(buildCard(page,pi));
+    container.appendChild(pageEl);
+  });
+}
+
+function buildCard(page,pi){
+  const card=document.createElement('div');
+  card.className='text-card';
+  card.id='card_'+page.id;
+
+  // Header
+  const totalBlanks=page.chapters.reduce((n,c)=>n+c.segments.filter(s=>typeof s==='object').length,0);
+  card.innerHTML=`<div class="tc-header">
+    <span class="tc-level" style="color:${page.levelColor};border-color:color-mix(in srgb, ${page.levelColor} 34%, transparent);background:color-mix(in srgb, ${page.levelColor} 6%, transparent)">${page.level} · ${page.difficulty}</span>
+    <span class="tc-title">${['📗','📘','📙'][pi]} ${page.title}</span>
+    <div class="tc-meta">
+      <span class="tc-score" id="pgscore_${page.id}">0 / ${totalBlanks}</span>
+      <button class="tc-restart" onclick="restartPage('${page.id}')">🔄 Restart all</button>
+    </div>
+  </div>
+  <p style="font-size:.82rem;color:var(--muted2);font-style:italic;padding:10px 24px 0;line-height:1.6">${page.subtitle}</p>`;
+
+  // Chapter tabs
+  const tabBar=document.createElement('div');
+  tabBar.className='chapter-tabs';
+  tabBar.id='ctabs_'+page.id;
+  page.chapters.forEach((ch,ci)=>{
+    const btn=document.createElement('button');
+    btn.className='ctab-btn'+(ci===0?' active':'');
+    btn.id='ctab_'+ch.id;
+    btn.textContent=ch.label;
+    btn.onclick=()=>showChapter(page.id,ch.id);
+    tabBar.appendChild(btn);
+  });
+  card.appendChild(tabBar);
+
+  // Chapter panels
+  page.chapters.forEach((ch,ci)=>{
+    card.appendChild(buildChapter(ch,ci,page));
+  });
+
+  return card;
+}
+
+function buildChapter(ch,ci,page){
+  const panel=document.createElement('div');
+  panel.className='chapter-panel'+(ci===0?' visible':'');
+  panel.id='cpanel_'+ch.id;
+
+  const chBlanks=ch.segments.filter(s=>typeof s==='object');
+  const isLast=ci===page.chapters.length-1;
+  const nextCh=page.chapters[ci+1];
+
+  panel.innerHTML=`
+    <div class="chapter-intro">${ch.intro}</div>
+    <div class="paragraph" id="para_${ch.id}">${buildParaHTML(ch)}</div>`;
+
+  // Footer
+  const footer=document.createElement('div');
+  footer.className='chapter-footer';
+  footer.style.marginTop='18px';
+  footer.innerHTML=`
+    <button class="btn-verify" id="vbtn_${ch.id}" onclick="verifyChapter('${ch.id}','${page.id}',${ci})">Verify ✓</button>
+    <span class="ch-result" id="chresult_${ch.id}"></span>
+    ${!isLast?`<button class="btn-next-ch" id="nextbtn_${ch.id}" onclick="showChapter('${page.id}','${nextCh.id}')">Next: ${nextCh.label} →</button>`:''}`;
+  panel.appendChild(footer);
+
+  // Key
+  const keyWrap=document.createElement('div');
+  keyWrap.className='key-wrap';
+  keyWrap.id='key_'+ch.id;
+  keyWrap.innerHTML=`<div class="key-title" onclick="toggleKeyGrid('kgrid_${ch.id}','ktoggle_${ch.id}')">
+      📋 Grammar notes — click to expand <span id="ktoggle_${ch.id}">▼</span>
+    </div>
+    <div class="key-grid">
+      <div class="key-grid-inner" id="kgrid_${ch.id}">
+        ${chBlanks.map(seg=>`<div class="key-item key-${seg.type}" id="ki_${seg.id}">
+          <strong>${seg.answer}</strong> — ${getNote(seg)}
+        </div>`).join('')}
+      </div>
+    </div>`;
+  panel.appendChild(keyWrap);
+
+  // Translation
+  const transWrap=document.createElement('div');
+  transWrap.className='trans-wrap';
+  transWrap.innerHTML=`
+    <div class="trans-header" onclick="toggleTrans('trbody_${ch.id}','trchev_${ch.id}')">
+      <span class="trans-title">🇺🇸 English translation</span>
+      <span class="trans-chevron" id="trchev_${ch.id}">▼</span>
+    </div>
+    <div class="trans-body" id="trbody_${ch.id}">
+      <div class="trans-text">${ch.translation}</div>
+    </div>`;
+  panel.appendChild(transWrap);
+
+  return panel;
+}
+
+function getNote(seg){
+  const NOTES={
+    fui:'SER — preterite: completed event, role, or evaluation. A moment or event that is over and done.',
+    era:'SER — imperfect: description, identity, characteristic, or background. How someone/something was over time.',
+    estuve:'ESTAR — preterite: a state or location with a clear start and end. "I was there for X time."',
+    estaba:'ESTAR — imperfect: ongoing state, emotion, or location as background context. What was happening around the main action.',
+  };
+  return NOTES[seg.type]||'';
+}
+
+function buildParaHTML(ch){
+  return ch.segments.map(seg=>{
+    if(typeof seg==='string') return seg.replace(/\n\n/g,'<br><br>');
+    const col=TYPE_COLOR[seg.type]||'var(--cyan)';
+    const bg=TYPE_BG[seg.type]||'rgba(37,217,255,.1)';
+    const opts=[...seg.opts].sort(()=>Math.random()-.5);
+    return `<span class="dd-wrap" id="ddwrap_${seg.id}">
+      <select class="dd-select" id="dd_${seg.id}" data-answer="${seg.answer}" data-type="${seg.type}"
+        style="border-color:color-mix(in srgb, ${col} 27%, transparent);color:${col};background:${bg}"
+        onchange="onSelect('${seg.id}')">
+        <option value="" disabled selected>▼ elige</option>
+        ${opts.map(o=>`<option value="${o}">${o}</option>`).join('')}
+      </select>
+      <span class="dd-arrow" style="color:${col}">▼</span>
+    </span>`;
+  }).join('');
+}
+
+function revealInline(seg, userVal, isOk){
+  const wrap = document.getElementById('ddwrap_'+seg.id);
+  if(!wrap) return;
+  const col = TYPE_COLOR[seg.type]||'var(--cyan)';
+  const bg = TYPE_BG[seg.type]||'rgba(37,217,255,.1)';
+  const note = getNote(seg);
+  const tipContent = `<strong>${seg.answer} — ${seg.type.toUpperCase()}</strong>${note}`;
+  const wrongPart = !isOk ? `<span class="inline-wrong-was" style="color:var(--bad)">${userVal||'—'}</span>` : '';
+  wrap.outerHTML = `<span class="inline-answer" id="ddwrap_${seg.id}">
+    ${wrongPart}<span class="inline-word ${isOk?'correct':'wrong'}" style="color:${isOk?'var(--good)':col}">${seg.answer}</span>
+    <button class="info-btn" style="background:${bg};color:${col};border:1px solid color-mix(in srgb, ${col} 34%, transparent)" tabindex="-1">
+      ⓘ<span class="info-tip">${tipContent}</span>
+    </button>
+  </span>`;
+}
+
+function onSelect(blankId){
+  const sel=document.getElementById('dd_'+blankId);
+  if(!sel||!sel.value)return;
+  const ok=sel.value===sel.dataset.answer;
+  sel.classList.remove('correct','wrong');
+  sel.classList.add(ok?'correct':'wrong');
+}
+
+function showChapter(pageId,chId){
+  const page=PAGES.find(p=>p.id===pageId);
+  if(!page)return;
+  page.chapters.forEach(ch=>{
+    const panel=document.getElementById('cpanel_'+ch.id);
+    const tab=document.getElementById('ctab_'+ch.id);
+    if(panel)panel.classList.toggle('visible',ch.id===chId);
+    if(tab)tab.classList.toggle('active',ch.id===chId);
+  });
+}
+
+function verifyChapter(chId,pageId,ci){
+  const page=PAGES.find(p=>p.id===pageId);
+  const ch=page?.chapters[ci];
+  if(!ch)return;
+
+  const blanks=ch.segments.filter(s=>typeof s==='object');
+  let correct=0;
+  blanks.forEach(seg=>{
+    const sel=document.getElementById('dd_'+seg.id);
+    if(!sel)return;
+    const userVal=sel.value;
+    const ok=userVal===seg.answer;
+    if(ok)correct++;
+    answered[seg.id]=ok;
+    // Reveal inline in paragraph
+    revealInline(seg, userVal, ok);
+    // Show key item
+    const ki=document.getElementById('ki_'+seg.id);
+    if(ki)ki.classList.add('show');
+  });
+
+  // Result
+  const pct=Math.round(correct/blanks.length*100);
+  const resEl=document.getElementById('chresult_'+chId);
+  if(resEl){
+    resEl.className='ch-result '+(pct>=80?'good':'bad');
+    const e=pct===100?'🏆':pct>=80?'🎉':pct>=60?'👍':'📚';
+    resEl.textContent=e+' '+correct+'/'+blanks.length+' ('+pct+'%)';
+  }
+
+  // Disable verify
+  const vbtn=document.getElementById('vbtn_'+chId);
+  if(vbtn)vbtn.disabled=true;
+
+  // Show key
+  const keyWrap=document.getElementById('key_'+chId);
+  if(keyWrap)keyWrap.classList.add('show');
+
+  // Auto-open translation
+  const trbody=document.getElementById('trbody_'+chId);
+  const trchev=document.getElementById('trchev_'+chId);
+  if(trbody&&!trbody.classList.contains('visible')){
+    trbody.classList.add('visible');
+    if(trchev)trchev.classList.add('open');
+  }
+
+  // Show next chapter button
+  const nextBtn=document.getElementById('nextbtn_'+chId);
+  if(nextBtn)nextBtn.classList.add('show');
+
+  // Update chapter tab
+  const tab=document.getElementById('ctab_'+chId);
+  if(tab)tab.classList.add('done');
+
+  // Update page score
+  updatePageScore(pageId);
+  updateTotals();
+  updatePageNav();
+}
+
+function updatePageScore(pageId){
+  const page=PAGES.find(p=>p.id===pageId);
+  if(!page)return;
+  const allBlanks=page.chapters.flatMap(ch=>ch.segments.filter(s=>typeof s==='object'));
+  const done=allBlanks.filter(s=>answered[s.id]!==undefined);
+  const correct=done.filter(s=>answered[s.id]);
+  const el=document.getElementById('pgscore_'+pageId);
+  if(el)el.textContent=correct.length+' / '+allBlanks.length;
+}
+
+function updateTotals(){
+  const allBlanks=PAGES.flatMap(p=>p.chapters.flatMap(c=>c.segments.filter(s=>typeof s==='object')));
+  const done=allBlanks.filter(s=>answered[s.id]!==undefined);
+  const correct=done.filter(s=>answered[s.id]).length;
+  const wrong=done.filter(s=>!answered[s.id]).length;
+  document.getElementById('tsCorrect').textContent=correct+' correct';
+  document.getElementById('tsWrong').textContent=wrong+' wrong';
+  const total=correct+wrong;
+  document.getElementById('tsPct').textContent=total>0?Math.round(correct/total*100)+'%':'—';
+}
+
+function updatePageNav(){
+  PAGES.forEach((p,i)=>{
+    const allBlanks=p.chapters.flatMap(c=>c.segments.filter(s=>typeof s==='object'));
+    const done=allBlanks.filter(s=>answered[s.id]!==undefined);
+    const correct=done.filter(s=>answered[s.id]).length;
+    const el=document.getElementById('pnav_check_'+i);
+    if(el&&done.length===allBlanks.length&&allBlanks.length>0){
+      el.textContent='✅ '+correct+'/'+allBlanks.length;
+      el.style.color='var(--good)';
+    } else if(el&&done.length>0){
+      el.textContent='🔄 '+done.length+'/'+allBlanks.length;
+      el.style.color='var(--warn)';
+    } else if(el){
+      el.textContent='';
+      el.style.color='';
+    }
+  });
+}
+
+function restartPage(pageId){
+  const page=PAGES.find(p=>p.id===pageId);
+  if(!page)return;
+  page.chapters.forEach(ch=>{
+    // Rebuild paragraph
+    const para=document.getElementById('para_'+ch.id);
+    if(para)para.innerHTML=buildParaHTML(ch);
+    // Reset UI
+    const vbtn=document.getElementById('vbtn_'+ch.id);
+    if(vbtn)vbtn.disabled=false;
+    const res=document.getElementById('chresult_'+ch.id);
+    if(res){res.textContent='';res.className='ch-result';}
+    const keyWrap=document.getElementById('key_'+ch.id);
+    if(keyWrap)keyWrap.classList.remove('show');
+    document.querySelectorAll('#key_'+ch.id+' .key-item').forEach(el=>el.classList.remove('show'));
+    const trbody=document.getElementById('trbody_'+ch.id);
+    if(trbody)trbody.classList.remove('visible');
+    const trchev=document.getElementById('trchev_'+ch.id);
+    if(trchev)trchev.classList.remove('open');
+    const nextBtn=document.getElementById('nextbtn_'+ch.id);
+    if(nextBtn)nextBtn.classList.remove('show');
+    const tab=document.getElementById('ctab_'+ch.id);
+    if(tab)tab.classList.remove('done');
+    // Clear answers
+    ch.segments.filter(s=>typeof s==='object').forEach(s=>delete answered[s.id]);
+  });
+  updatePageScore(pageId);
+  updateTotals();
+  updatePageNav();
+}
+
+function toggleTrans(bodyId,chevId){
+  const body=document.getElementById(bodyId);
+  const chev=document.getElementById(chevId);
+  if(body)body.classList.toggle('visible');
+  if(chev)chev.classList.toggle('open');
+}
+
+function toggleKeyGrid(gridId, toggleId){
+  const grid = document.getElementById(gridId);
+  const tog = document.getElementById(toggleId);
+  if(!grid) return;
+  grid.classList.toggle('open');
+  if(tog) tog.textContent = grid.classList.contains('open') ? '▲' : '▼';
+}
+
+init();
+</script>
+</body>
+</html>
