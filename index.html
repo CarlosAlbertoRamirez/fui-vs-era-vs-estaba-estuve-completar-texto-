@@ -198,388 +198,2304 @@ body{font-family:var(--font);background:radial-gradient(ellipse at 20% 10%,rgba(
 // type matches the CSS class for color.
 
 const PAGES = [
-// ═══════════════════════════════════════════════════════════════════════════════
-// PAGE 1 — FÁCIL A2 — "La familia Mendoza" — 3 CHAPTERS
-// ═══════════════════════════════════════════════════════════════════════════════
-{
-  id:'p1', level:'A2', difficulty:'Easy', levelColor:'var(--cestuve)',
-  title:'La familia Mendoza',
-  subtitle:'A large Mexican family — their personalities, a special Sunday, and how they remembered it years later.',
-  chapters:[
-    {
-      id:'p1c1', label:'I. La familia',
-      intro:'Meet the Mendoza family. Focus on ERA for descriptions, identity, characteristics, and background; use ESTABA for ongoing states, locations, and conditions.',
-      segments:[
-        'La familia Mendoza ',{id:'a1',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' una familia numerosa del Estado de México. El papá, don Roberto, ',
-        {id:'a2',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' mecánico de profesión y ',{id:'a3',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' un hombre muy trabajador. Todos los días ',
-        {id:'a4',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' en el taller desde las siete de la mañana hasta que oscurecía. Cuando llegaba a casa, siempre ',
-        {id:'a5',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' cansado, pero nunca de mal humor. La mamá, doña Carmen, ',
-        {id:'a6',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' maestra de primaria en la escuela del barrio. ',
-        {id:'a7',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' muy paciente con sus alumnos y también con sus hijos. Por las tardes, cuando llegaba a casa, siempre ',
-        {id:'a8',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' lista para escucharlos, aunque también ',
-        {id:'a9',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' cansada. Los hijos ',
-        {id:'a10',answer:'eran',type:'era',opts:['eran','fueron','estaban','estuvieron']},
-        ' tres: Rodrigo, Paola y el pequeño Emilio. Rodrigo ',
-        {id:'a11',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' el mayor — ',{id:'a12',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' serio y responsable. Paola ',{id:'a13',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' la del medio, la más sociable, y siempre ',
-        {id:'a14',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' riendo y haciendo chistes. Y Emilio, el chiquito, ',
-        {id:'a15',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' el consentido de todos, y lo sabía perfectamente.',
-      ],
-      translation:`<p>The Mendoza family <span class="hi-era">was</span> a large family from the State of Mexico. The father, don Roberto, <span class="hi-era">was</span> a mechanic by profession and <span class="hi-era">was</span> a very hard-working man. Every day he <span class="hi-estaba">was</span> at the workshop from seven in the morning until dark. When he got home, he was always <span class="hi-estaba">tired</span>, but never in a bad mood. The mother, doña Carmen, <span class="hi-era">was</span> an elementary school teacher at the neighborhood school. She <span class="hi-era">was</span> very patient with her students and also with her children. In the afternoons, when she got home, she was always <span class="hi-estaba">ready</span> to listen to them, although she was also <span class="hi-estaba">tired</span>. There <span class="hi-era">were</span> three children: Rodrigo, Paola and little Emilio. Rodrigo <span class="hi-era">was</span> the oldest — he <span class="hi-era">was</span> serious and responsible. Paola <span class="hi-era">was</span> the middle one, the most outgoing, and always <span class="hi-estaba">laughing</span> and making jokes. And Emilio, the little one, <span class="hi-era">was</span> everyone's favorite — and he knew it perfectly well.</p>`,
-    },
-    {
-      id:'p1c2', label:'II. El domingo especial',
-      intro:'One specific Sunday together. Notice how FUE marks completed events and ESTUVO marks states with a clear time limit.',
-      segments:[
-        'Un domingo, la familia decidió ir al parque del pueblo. ',
-        {id:'b1',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
-        ' un día muy especial porque hacía meses que no salían todos juntos. ',
-        'Don Roberto ',{id:'b2',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
-        ' toda la mañana preparando la comida para llevar — arroz, frijoles y pollo. ',
-        'Doña Carmen ',{id:'b3',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' muy contenta mientras empacaba las cosas en una bolsa grande. ',
-        'El parque ',{id:'b4',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' lleno de familias ese día y hacía un sol perfecto. ',
-        'Los niños ',{id:'b5',answer:'estuvieron',type:'estuve',opts:['estuvieron','eran','fueron','estaban']},
-        ' corriendo y jugando durante horas sin parar. ',
-        'Rodrigo, que normalmente ',{id:'b6',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' muy serio, ese día ',{id:'b7',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
-        ' más relajado y sonriente que nunca. ',
-        'Paola ',{id:'b8',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
-        ' la primera en encontrar un lugar perfecto bajo un árbol grande. ',
-        'Emilio ',{id:'b9',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
-        ' dormido casi dos horas en los brazos de su papá mientras todos comían. ',
-        'Cuando llegó la noche y tuvieron que volver a casa, todos ',
-        {id:'b10',answer:'estaban',type:'estaba',opts:['estaban','eran','estuvieron','fueron']},
-        ' cansados pero muy felices. Para don Roberto, ese domingo ',
-        {id:'b11',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
-        ' uno de los mejores días del año, aunque nunca lo dijo en voz alta.',
-      ],
-      translation:`<p>One Sunday, the family decided to go to the neighborhood park. It <span class="hi-fui">was</span> a very special day because it had been months since they all went out together. Don Roberto <span class="hi-estuve">was (busy)</span> all morning preparing food to take — rice, beans and chicken. Doña Carmen <span class="hi-estaba">was</span> very happy while she packed things up in a big bag. The park <span class="hi-estaba">was</span> full of families that day and the sun was perfect. The children <span class="hi-estuve">were</span> running and playing for hours without stopping. Rodrigo, who was normally <span class="hi-era">very serious</span>, that day <span class="hi-estuve">was</span> more relaxed and smiley than ever. Paola <span class="hi-fui">was</span> the first to find a perfect spot under a big tree. Emilio <span class="hi-estuve">was</span> asleep for almost two hours in his dad's arms while everyone ate. When night came and they had to go back home, everyone <span class="hi-estaba">was</span> tired but very happy. For don Roberto, that Sunday <span class="hi-fui">was</span> one of the best days of the year — though he never said it out loud.</p>`,
-    },
-    {
-      id:'p1c3', label:'III. Los recuerdos',
-      intro:'Years later, looking back. Mostly imperfect (how things used to be) with key preterites for completed events.',
-      segments:[
-        'Años después, cuando los hijos ya ',{id:'c1',answer:'eran',type:'era',opts:['eran','fueron','estaban','estuvieron']},
-        ' adultos y vivían en diferentes ciudades, todos recordaban ese domingo con mucho cariño. ',
-        'Rodrigo siempre decía que su familia ',{id:'c2',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' humilde y unida, aunque tenía poco dinero. ',
-        'Recordaba que su papá nunca ',{id:'c3',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' de mal humor cuando ',{id:'c4',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' con la familia, aunque sí ',{id:'c5',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' cansado. Paola nunca olvidó cómo su mamá ',
-        {id:'c6',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' siempre presente, aunque también ',{id:'c7',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' agotada. ',
-        'Emilio, el más chico, ',{id:'c8',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
-        ' el primero en casarse y tener hijos. En su primera cena de Navidad como papá, les dijo a todos: ',
-        '"Mi familia ',{id:'c9',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' humilde, pero mis papás siempre ',{id:'c10',answer:'estaban',type:'estaba',opts:['estaban','eran','estuvieron','fueron']},
-        ' ahí para nosotros. Eso ',{id:'c11',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
-        ' lo más importante que nos pudieron dar." ',
-        'Don Roberto, que para entonces ya ',{id:'c12',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' mayor y tenía dificultades para oír, escuchó esas palabras y ',
-        {id:'c13',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
-        ' llorando en silencio un buen rato. Doña Carmen le tomó la mano y los dos ',
-        {id:'c14',answer:'estuvieron',type:'estuve',opts:['estuvieron','eran','fueron','estaban']},
-        ' así, callados, por un momento que ninguno de los dos olvidaría.',
-      ],
-      translation:`<p>Years later, when the children <span class="hi-era">were</span> already adults and lived in different cities, they all remembered that Sunday fondly. Rodrigo always used to say that his family <span class="hi-era">was</span> humble and close-knit, even though they had little money. He remembered that his dad was never <span class="hi-estaba">in a bad mood</span> when he <span class="hi-estaba">was</span> with the family, even though he <span class="hi-estaba">was</span> tired. Paola never forgot how her mom <span class="hi-estaba">was</span> always present, even though she was also <span class="hi-estaba">exhausted</span>. Emilio, the youngest, <span class="hi-fui">was</span> the first to get married and have children. At his first Christmas dinner as a dad, he told everyone: "My family <span class="hi-era">was</span> humble, but my parents <span class="hi-estaba">were</span> always there for us. That <span class="hi-fui">was</span> the most important thing they could give us." Don Roberto, who by then <span class="hi-era">was</span> already an older man and had trouble hearing, heard those words and <span class="hi-estuve">was</span> crying silently for a good while. Doña Carmen took his hand and the two of them <span class="hi-estuve">were</span> like that, quiet, for a moment that neither of them would ever forget.</p>`,
-    },
-  ],
-},
-// ═══════════════════════════════════════════════════════════════════════════════
-// PAGE 2 — INTERMEDIO A2-B1 — "El restaurante de la abuela" — 4 CHAPTERS
-// ═══════════════════════════════════════════════════════════════════════════════
-{
-  id:'p2', level:'A2–B1', difficulty:'Intermediate', levelColor:'var(--cera)',
-  title:'El restaurante de la abuela',
-  subtitle:'The story of Esperanza — a woman who left everything behind and built something extraordinary from nothing.',
-  chapters:[
-    {
-      id:'p2c1', label:'I. Los comienzos',
-      intro:'Background and origins. ERA describes who she was; ESTABA describes her situations and emotional states.',
-      segments:[
-        'El restaurante de mi abuela ',{id:'d1',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' un lugar pequeño en una esquina del centro de Cuernavaca. ',
-        'Mi abuela, Esperanza, ',{id:'d2',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' originaria de un pueblo pequeño de Guerrero. Llegó a la ciudad a los diecinueve años sin conocer a nadie y con muy poco dinero. ',
-        'Cuando llegó, ',{id:'d3',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' completamente sola y solo traía consigo una maleta desgastada y una libreta llena de recetas escritas a mano. ',
-        {id:'d4',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' valiente, aunque también ',{id:'d5',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' asustada por dentro. ',
-        'Sus primeros años en Cuernavaca ',{id:'d6',answer:'fueron',type:'fui',opts:['fueron','eran','estuvieron','estaban']},
-        ' muy difíciles. ',{id:'d7',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
-        ' trabajando en casas ajenas durante casi cinco años cocinando y limpiando para ahorrar dinero. ',
-        'El local donde finalmente abrió el restaurante ',{id:'d8',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' muy pequeño — solo cabían cuatro mesas y una cocina angosta. ',
-        {id:'d9',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' en una calle secundaria que casi nadie conocía. Pero mi abuela ',
-        {id:'d10',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' terca como ella sola y ',{id:'d11',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' completamente segura de que la comida hablaría por sí sola.',
-      ],
-      translation:`<p>My grandmother's restaurant <span class="hi-era">was</span> a small place on a corner of downtown Cuernavaca. My grandmother, Esperanza, <span class="hi-era">was</span> originally from a small town in Guerrero. She arrived in the city at nineteen without knowing anyone and with very little money. When she arrived, she <span class="hi-estaba">was</span> completely alone and only brought a worn-out suitcase and a notebook full of handwritten recipes. She <span class="hi-era">was</span> brave, although she was also <span class="hi-estaba">scared</span> on the inside. Her first years in Cuernavaca <span class="hi-fui">were</span> very difficult. She <span class="hi-estuve">was (busy)</span> working in other people's homes for almost five years — cooking and cleaning — to save money. The place where she finally opened the restaurant <span class="hi-era">was</span> very small — only four tables and a narrow kitchen could fit. It <span class="hi-estaba">was</span> on a side street that almost nobody knew. But my grandmother <span class="hi-era">was</span> as stubborn as they come and <span class="hi-estaba">was</span> completely sure that the food would speak for itself.</p>`,
-    },
-    {
-      id:'p2c2', label:'II. El éxito',
-      intro:'The restaurant takes off. Mix of ESTUVO (time spent doing something) and FUE (turning points and evaluations).',
-      segments:[
-        'El primer año ',{id:'e1',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
-        ' complicado y lleno de dudas. Durante el segundo año, la situación empezó a cambiar: la fama del mole negro de mi abuela comenzó a crecer de boca en boca. ',
-        'Un periodista de Cuernavaca ',{id:'e3',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
-        ' comiendo ahí un martes por casualidad y al día siguiente publicó una reseña emocionada en el periódico local. ',
-        'Ese artículo ',{id:'e4',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
-        ' el parteaguas. De repente, el restaurante ',{id:'e5',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' lleno todos los días — al mediodía y en la noche. ',
-        'Mi abuela ',{id:'e6',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
-        ' cocinando prácticamente sola durante varios meses hasta que por fin pudo contratar ayuda. ',
-        'Los clientes ',{id:'e7',answer:'estaban',type:'estaba',opts:['estaban','eran','estuvieron','fueron']},
-        ' dispuestos a esperar hasta una hora en la banqueta con tal de conseguir una mesa. ',
-        'Para muchos en la ciudad, el restaurante de Esperanza ',{id:'e8',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
-        ' el mejor que habían conocido. Y no ',{id:'e9',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' por el local — el local seguía siendo pequeño y sin decoración elegante. ',
-        {id:'e10',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' la sazón de mi abuela, que no ',{id:'e11',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' de este mundo. Algo en esa comida hacía que la gente volviera semana tras semana.',
-      ],
-      translation:`<p>The first year <span class="hi-fui">was</span> complicated and full of doubts. During the second year, things began to change: the fame of my grandmother's mole negro began to spread by word of mouth. A journalist from Cuernavaca <span class="hi-estuve">was (there)</span> eating by chance one Tuesday and the next day published an enthusiastic review in the local newspaper. That article <span class="hi-fui">was</span> the turning point. Suddenly, the restaurant <span class="hi-estaba">was</span> full every day — at lunch and at dinner. My grandmother <span class="hi-estuve">was (busy)</span> cooking practically alone for several months until she could finally hire help. Customers <span class="hi-estaba">were</span> willing to wait up to an hour on the sidewalk just to get a table. For many in the city, Esperanza's restaurant <span class="hi-fui">was</span> the best they had ever known. And it <span class="hi-era">wasn't</span> because of the place — the place was still small and without elegant decoration. It <span class="hi-era">was</span> my grandmother's seasoning, which <span class="hi-era">wasn't</span> of this world. Something in that food made people come back week after week.</p>`,
-    },
-    {
-      id:'p2c3', label:'III. El precio del éxito',
-      intro:'What success cost her personally and as a mother. ESTABA for emotional states; ESTUVO for states with a defined end.',
-      segments:[
-        'Pero el éxito tuvo un precio. Mi abuela ',{id:'f1',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' agotada casi siempre. Sus jornadas en la cocina ',{id:'f2',answer:'eran',type:'era',opts:['eran','fueron','estaban','estuvieron']},
-        ' de doce horas o más, seis días a la semana. Muchas noches, cuando por fin cerraba el restaurante, ',
-        {id:'f3',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' tan cansada que se quedaba dormida en la silla de la cocina antes de llegar a su cuarto. ',
-        'Un invierno muy frío, ',{id:'f4',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
-        ' enferma de pulmonía casi tres semanas y tuvo que cerrar el restaurante por primera vez. ',
-        'Para ella, eso ',{id:'f5',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
-        ' lo más duro — no la enfermedad en sí, sino cerrar las puertas. ',
-        'Mi mamá recuerda que cuando ',{id:'f6',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' niña, su mamá —mi abuela— nunca ',
-        {id:'f7',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' en casa para la cena. El restaurante siempre ',
-        {id:'f8',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' lo primero. Las noches en que sí ',{id:'f9',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' en casa, todo ',{id:'f10',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' diferente — había más ruido, más risa, más vida. Mi mamá dice que la casa ',
-        {id:'f11',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' otro lugar cuando ella ',{id:'f12',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' ahí. Pero esas noches ',{id:'f13',answer:'eran',type:'era',opts:['eran','fueron','estaban','estuvieron']},
-        ' pocas.',
-      ],
-      translation:`<p>But success had a price. My grandmother <span class="hi-estaba">was</span> exhausted almost always. Her shifts in the kitchen <span class="hi-era">were</span> twelve hours or more, six days a week. Many nights, when she finally closed the restaurant, she <span class="hi-estaba">was</span> so tired that she fell asleep in the kitchen chair before reaching her room. One very cold winter, she <span class="hi-estuve">was (sick)</span> with pneumonia for almost three weeks and had to close the restaurant for the first time. For her, that <span class="hi-fui">was</span> the hardest part — not the illness itself, but closing the doors. My mom remembers that when she <span class="hi-era">was</span> a little girl, her mom — my grandmother — was never <span class="hi-estaba">home</span> for dinner. The restaurant always <span class="hi-era">came</span> first. On the nights when she <span class="hi-estaba">was</span> home, everything <span class="hi-era">was</span> different — there was more noise, more laughter, more life. My mom says the house <span class="hi-era">was</span> a different place when she <span class="hi-estaba">was</span> there. But those nights <span class="hi-era">were</span> few.</p>`,
-    },
-    {
-      id:'p2c4', label:'IV. El legado',
-      intro:'The final chapter — what she left behind. All four forms appear. Think carefully about each one.',
-      segments:[
-        'Mi abuela murió a los ochenta y dos años, un lunes por la noche. El restaurante ',
-        {id:'g1',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
-        ' suyo hasta el último día — nunca quiso venderlo ni traspasarlo a nadie. ',
-        'Sus últimos años ',{id:'g2',answer:'estuvieron',type:'estuve',opts:['estuvieron','eran','fueron','estaban']},
-        ' marcados por la artritis y los achaques de la edad, pero nunca dejó de cocinar. ',
-        'El día que murió, dicen que ',{id:'g3',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' cocinando un caldo cuando se sintió mal y tuvo que sentarse. ',
-        'Esa tarde ya no ',{id:'g4',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' en condiciones de continuar. Llamaron a la familia, y ella ',
-        {id:'g5',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
-        ' rodeada de todos los que quería esa última noche. ',
-        'En el velorio, mucha gente que nunca había conocido a su familia ',
-        {id:'g6',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
-        ' ahí — clientes de muchos años, exempleados y el periodista que había escrito sobre ella. ',
-        'Todos decían lo mismo: que Esperanza ',
-        {id:'g7',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' una mujer extraordinaria, que su restaurante no ',
-        {id:'g8',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' solo un restaurante — ',{id:'g9',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' un lugar donde la gente ',{id:'g10',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' a gusto, ',{id:'g11',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' como en casa. Y que Esperanza ',{id:'g12',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
-        ' exactamente eso para todos: un hogar para los que no tenían uno. ',
-        'Mi mamá cerró el restaurante esa semana. Luego lo abrió de nuevo. ',
-        'Dijo que cerrarlo para siempre no ',{id:'g13',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' una opción.',
-      ],
-      translation:`<p>My grandmother died at eighty-two, on a Monday night. The restaurant <span class="hi-fui">was</span> hers until the last day — she never wanted to sell it or transfer it to anyone. Her last years <span class="hi-estuve">were</span> marked by arthritis and the ailments of old age, but she never stopped cooking. The day she died, they say she <span class="hi-estaba">was (in the middle of)</span> cooking a broth when she felt ill and had to sit down. That afternoon she <span class="hi-estaba">was</span> no longer in condition to continue. They called the family, and she <span class="hi-estuve">was</span> surrounded by everyone she loved that last night. At the wake, many people who had never known her family <span class="hi-estuve">were</span> there — long-time customers, former employees, and the journalist who had written about her. Everyone said the same thing: that Esperanza <span class="hi-era">was</span> an extraordinary woman, that her restaurant <span class="hi-era">wasn't</span> just a restaurant — it <span class="hi-era">was</span> a place where people <span class="hi-estaba">felt</span> comfortable and <span class="hi-estaba">felt</span> at home. And that Esperanza <span class="hi-fui">was</span> exactly that for everyone: a home for those who didn't have one. My mom closed the restaurant that week. Then she opened it again. She said closing it forever <span class="hi-era">wasn't</span> an option.</p>`,
-    },
-  ],
-},
-// ═══════════════════════════════════════════════════════════════════════════════
-// PAGE 3 — AVANZADO B1 — "El año que cambió todo" — 5 CHAPTERS
-// ═══════════════════════════════════════════════════════════════════════════════
-{
-  id:'p3', level:'B1', difficulty:'Advanced', levelColor:'var(--cfui)',
-  title:'El año que cambió todo',
-  subtitle:'Daniel, 28, leaves a stable career to travel alone for a year — and discovers who he really is.',
-  chapters:[
-    {
-      id:'p3c1', label:'I. La vida de antes',
-      intro:'Daniel\'s life before the trip. Dense imperfect — habitual states, descriptions, background context throughout.',
-      segments:[
-        'Daniel ',{id:'h1',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' programador de software en una empresa de tecnología en Monterrey. Tenía veintiocho años y, desde afuera, su vida ',
-        {id:'h2',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' perfecta: un trabajo bien pagado, un departamento propio y un coche nuevo. ',
-        {id:'h3',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' bueno en su trabajo — uno de los mejores del equipo — pero por dentro siempre ',
-        {id:'h4',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' inquieto, como si le faltara algo que no sabía nombrar. Su departamento ',
-        {id:'h5',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' pequeño pero cómodo, y ',{id:'h6',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' en una colonia tranquila a diez minutos del trabajo. Daniel ',
-        {id:'h7',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' soltero, ordenado y tenía una rutina fija que raramente rompía: café a las seis, reunión a las nueve, gimnasio a las siete. ',
-        'Sus amigos decían que ',{id:'h8',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' demasiado serio para su edad y que siempre ',
-        {id:'h9',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' pensando en el futuro en lugar de disfrutar el presente. ',
-        'Su mamá pensaba que ',{id:'h10',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' bien así, aunque en el fondo sabía que Daniel ',
-        {id:'h11',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' buscando algo que todavía no encontraba. El día de su cumpleaños número veintiocho, se despertó temprano y pensó en voz alta: ',
-        '"Todo ',{id:'h12',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' bien. Pero eso no ',{id:'h13',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' suficiente."',
-      ],
-      translation:`<p>Daniel <span class="hi-era">was</span> a software programmer at a technology company in Monterrey. He was twenty-eight years old and, from the outside, his life <span class="hi-era">was</span> perfect: a well-paying job, his own apartment and a new car. He <span class="hi-era">was</span> good at his work — one of the best on the team — but inside he was always <span class="hi-estaba">restless</span>, as if something was missing that he couldn't name. His apartment <span class="hi-era">was</span> small but comfortable, and <span class="hi-estaba">was</span> in a quiet neighborhood ten minutes from work. Daniel <span class="hi-era">was</span> single, organized and had a fixed routine he rarely broke: coffee at six, meeting at nine, gym at seven. His friends said he <span class="hi-era">was</span> too serious for his age and <span class="hi-estaba">was</span> always thinking about the future instead of enjoying the present. His mom thought he <span class="hi-estaba">was</span> fine like that, although deep down she knew Daniel <span class="hi-estaba">was</span> looking for something he hadn't yet found. On the day of his twenty-eighth birthday, he woke up early and thought out loud: "Everything <span class="hi-estaba">was</span> fine. But that <span class="hi-era">wasn't</span> enough."</p>`,
-    },
-    {
-      id:'p3c2', label:'II. La renuncia',
-      intro:'The day he quit and the weeks right after. Key preterites mark the turning points; imperfects give the context.',
-      segments:[
-        'Dos semanas después, Daniel entró a la oficina de su jefe y renunció. ',
-        {id:'i1',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
-        ' una conversación corta pero incómoda. Su jefe, que ',
-        {id:'i2',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' un hombre de pocas palabras, le dijo que ',
-        {id:'i3',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' un error que lamentaría. Daniel escuchó todo sin decir nada. ',
-        'Cuando salió de esa oficina, ',{id:'i4',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' temblando — no de miedo, sino de algo parecido a la emoción. ',
-        'Esa tarde ',{id:'i5',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
-        ' en su departamento durante horas con una hoja en blanco, haciendo y deshaciendo listas. ',
-        'El plan ',{id:'i6',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' simple en papel: viajar solo durante un año con los ahorros que tenía. La primera parada ',
-        {id:'i7',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
-        ' Oaxaca, luego Chiapas, luego Guatemala. Sin hotel reservado, sin itinerario fijo. ',
-        'Sus amigos ',{id:'i8',answer:'estaban',type:'estaba',opts:['estaban','eran','estuvieron','fueron']},
-        ' entre sorprendidos y preocupados — nadie entendía por qué alguien que ',
-        {id:'i9',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' tan estable y cómodo iba a dejarlo todo así. Su jefa de recursos humanos, que ',
-        {id:'i10',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' la más directa del equipo, le dijo que lo que tenía ahí no ',
-        {id:'i11',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' fácil de encontrar. Él asintió. Lo sabía. Y aun así se fue.',
-      ],
-      translation:`<p>Two weeks later, Daniel walked into his boss's office and quit. It <span class="hi-fui">was</span> a short but uncomfortable conversation. His boss, who <span class="hi-era">was</span> a man of few words, told him it <span class="hi-era">was</span> a mistake he would regret. Daniel listened to everything without saying anything. When he left that office, he <span class="hi-estaba">was</span> trembling — not from fear, but from something resembling excitement. That afternoon he <span class="hi-estuve">was</span> in his apartment for hours with a blank sheet of paper, making and unmaking lists. The plan <span class="hi-era">was</span> simple on paper: travel alone for one year with his savings. The first stop <span class="hi-fui">was</span> Oaxaca, then Chiapas, then Guatemala. No hotel reserved, no fixed itinerary. His friends <span class="hi-estaba">were</span> somewhere between surprised and worried — nobody understood why someone who <span class="hi-era">was</span> so stable and comfortable would leave everything like that. His HR manager, who <span class="hi-era">was</span> the most direct person on the team, told him that what he had there <span class="hi-era">wasn't</span> easy to find. He nodded. He knew. And he left anyway.</p>`,
-    },
-    {
-      id:'p3c3', label:'III. El choque',
-      intro:'The first months are hard. Complex mix — imperfect for background, preterite for key moments and evaluations.',
-      segments:[
-        'Los primeros meses ',{id:'j1',answer:'fueron',type:'fui',opts:['fueron','eran','estuvieron','estaban']},
-        ' un choque real. Daniel, que siempre había sido muy ordenado y predecible, de repente ',{id:'j3',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' durmiendo en hostales con desconocidos, comiendo lo que encontrara y cargando todo en una mochila. ',
-        'Al principio ',{id:'j4',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' incómodo con la incertidumbre — con no saber exactamente dónde estaría al día siguiente ni cuánto dinero gastaría esa semana. ',
-        'Hubo momentos en que ',{id:'j6',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
-        ' a punto de comprar un boleto de regreso y admitir que había sido un error. Pero no lo hizo. ',
-        'En Chiapas, ',{id:'j8',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
-        ' tres semanas en una comunidad indígena pequeña, ayudando con clases de inglés básico. ',
-        {id:'j9',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
-        ' la primera vez en su vida que hacía algo completamente desinteresado, sin esperar nada a cambio. ',
-        'Los niños de la comunidad ',{id:'j10',answer:'eran',type:'era',opts:['eran','fueron','estaban','estuvieron']},
-        ' curiosos y alegres. Daniel ',{id:'j11',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' convencido de que aprendió más de ellos que ellos de él. Cuando se fue de ese pueblo, ',
-        {id:'j12',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' diferente — todavía no sabía cómo explicarlo, pero ',{id:'j13',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' otro.',
-      ],
-      translation:`<p>The first months <span class="hi-fui">were</span> a real shock. Daniel, who had always been very organized and predictable, was suddenly <span class="hi-estaba">sleeping</span> in hostels with strangers, eating whatever he could find and carrying everything in a backpack. At first he <span class="hi-estaba">was</span> uncomfortable with uncertainty — with not knowing exactly where he would be the next day or how much money he would spend that week. There were moments when he <span class="hi-estuve">was</span> on the verge of buying a ticket back and admitting it had been a mistake. But he didn't. In Chiapas, he <span class="hi-estuve">was (there for)</span> three weeks in a small indigenous community, helping with basic English classes. It <span class="hi-fui">was</span> the first time in his life he did something completely selfless, without expecting anything in return. The children in the community <span class="hi-era">were</span> curious and joyful. Daniel <span class="hi-estaba">was</span> convinced he learned more from them than they did from him. When he left that town, he <span class="hi-estaba">was</span> different — he still didn't know how to explain it, but he <span class="hi-era">was</span> someone else.</p>`,
-    },
-    {
-      id:'p3c4', label:'IV. Marta y Guatemala',
-      intro:'A connection on the road. Imperfects for character descriptions; preterites for the completed relationship arc.',
-      segments:[
-        'En Guatemala conoció a Marta, una chica de Sevilla que también ',
-        {id:'k1',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' viajando sola. La conoció en un mercado de Antigua un miércoles por la tarde. Ella ',
-        {id:'k2',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' discutiendo con un vendedor en un español rapidísimo que Daniel apenas entendía. ',
-        {id:'k3',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' directa, graciosa y sin pelos en la lengua. Los dos ',
-        {id:'k4',answer:'estuvieron',type:'estuve',opts:['estuvieron','eran','fueron','estaban']},
-        ' juntos casi un mes recorriendo el país — volcanes, lagos, ruinas mayas. ',
-        'Marta ',{id:'k5',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' fotógrafa y ',{id:'k6',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' trabajando en un proyecto documental sobre migrantes centroamericanos. ',
-        {id:'k7',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' la primera persona que Daniel conoció en el viaje con quien podía hablar de verdad. ',
-        'Muchas noches ',{id:'k8',answer:'estuvieron',type:'estuve',opts:['estuvieron','eran','fueron','estaban']},
-        ' hablando hasta las dos o las tres de la mañana sobre sus vidas, sus miedos, lo que querían y lo que habían dejado atrás. ',
-        'Cuando Marta se fue a Costa Rica a continuar su proyecto, ',
-        {id:'k9',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
-        ' una despedida difícil. Daniel ',{id:'k10',answer:'estuvo',type:'estuve',opts:['estuvo','era','fue','estaba']},
-        ' triste un par de días. Luego siguió. Pero Marta ',
-        {id:'k11',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
-        ' una de esas personas que te cambian aunque solo las conozcas durante un mes.',
-      ],
-      translation:`<p>In Guatemala he met Marta, a girl from Seville who also <span class="hi-estaba">was</span> traveling alone. He met her at a market in Antigua on a Wednesday afternoon. She <span class="hi-estaba">was</span> arguing with a vendor in a very fast Spanish that Daniel could barely understand. She <span class="hi-era">was</span> direct, funny and straightforward. The two of them <span class="hi-estuve">were</span> together for almost a month traveling through the country — volcanoes, lakes, Mayan ruins. Marta <span class="hi-era">was</span> a photographer and <span class="hi-estaba">was</span> working on a documentary project about Central American migrants. She <span class="hi-era">was</span> the first person Daniel met on the trip with whom he could really talk. Many nights they <span class="hi-estuve">were</span> talking until two or three in the morning about their lives, their fears, what they wanted and what they had left behind. When Marta left for Costa Rica to continue her project, it <span class="hi-fui">was</span> a difficult goodbye. Daniel <span class="hi-estuve">was</span> sad for a couple of days. Then he kept going. But Marta <span class="hi-fui">was</span> one of those people who can change you even if you only know them for a month.</p>`,
-    },
-    {
-      id:'p3c5', label:'V. La vuelta',
-      intro:'Coming back and building something new. All four forms in complex, layered sentences. Think carefully.',
-      segments:[
-        'Cuando Daniel volvió a Monterrey, ',{id:'l1',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' enero y hacía un frío inusual. Su departamento ',{id:'l2',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' tal como lo había dejado — ordenado, silencioso, igual. Pero Daniel ya no ',
-        {id:'l3',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' el mismo. Sus amigos notaron el cambio de inmediato. Antes, Daniel ',
-        {id:'l4',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' el que menos hablaba en las reuniones — el que siempre ',
-        {id:'l5',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' al margen, escuchando. Ahora tenía historias y tenía opiniones. ',
-        'La empresa donde antes había trabajado lo llamó para ofrecerle su puesto de vuelta con un aumento. ',
-        {id:'l7',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
-        ' una llamada difícil de rechazar — el salario ',
-        {id:'l8',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' bueno y la posición ',{id:'l9',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' cómoda. Pero Daniel dijo que no. ',
-        'En cambio, decidió empezar un proyecto propio — una plataforma de aprendizaje de idiomas para comunidades rurales como la que había conocido en Chiapas. El día que registró la empresa, ',
-        {id:'l11',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' más asustado que nunca. Y también ',{id:'l12',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' más seguro de sí mismo que en toda su vida. ',
-        'El año del viaje ',{id:'l13',answer:'fue',type:'fui',opts:['fue','era','estuvo','estaba']},
-        ' lo que necesitaba. No para encontrar respuestas — sino para aprender a vivir con las preguntas. ',
-        'Y lo mejor: ya no ',{id:'l14',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' inquieto. Por primera vez en mucho tiempo, ',
-        {id:'l15',answer:'estaba',type:'estaba',opts:['estaba','era','estuvo','fue']},
-        ' bien. Y eso sí ',{id:'l16',answer:'era',type:'era',opts:['era','fue','estaba','estuvo']},
-        ' suficiente.',
-      ],
-      translation:`<p>When Daniel returned to Monterrey, it <span class="hi-era">was</span> January and unusually cold. His apartment <span class="hi-estaba">was</span> just as he had left it — tidy, silent, the same. But Daniel was no longer <span class="hi-era">the same</span>. His friends noticed the change immediately. Before, Daniel <span class="hi-era">used to be</span> the one who talked least at gatherings — the one who was always <span class="hi-estaba">on the sidelines</span>, listening. Now he had stories and he had opinions. The company where he had previously worked called to offer his position back with a raise. It <span class="hi-fui">was</span> a call that was hard to turn down — the salary <span class="hi-era">was</span> good and the position <span class="hi-era">was</span> comfortable. But Daniel said no. Instead, he decided to start his own project — a language learning platform for rural communities like the one he had gotten to know in Chiapas. The day he registered the company, he <span class="hi-estaba">was</span> more scared than ever. And also <span class="hi-estaba">more confident</span> in himself than at any point in his life. The year of travel <span class="hi-fui">was</span> what he needed. Not to find answers — but to learn to live with the questions. And the best part: he was no longer <span class="hi-estaba">restless</span>. For the first time in a long time, he <span class="hi-estaba">was</span> okay. And that <span class="hi-era">was</span> enough.</p>`,
-    },
-  ],
-},
+  {
+    "id": "p1",
+    "level": "A2",
+    "difficulty": "Easy",
+    "levelColor": "var(--cestuve)",
+    "title": "La familia Mendoza",
+    "subtitle": "A Mexican family — everyday life, a Sunday together, and a family celebration.",
+    "chapters": [
+      {
+        "id": "p1c1",
+        "label": "I. Un día normal",
+        "intro": "Everyday background plus a few finished moments. Compare descriptions with temporary states and completed events.",
+        "segments": [
+          "La familia Mendoza ",
+          {
+            "id": "a1",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " grande y muy unida. Roberto, el papá, ",
+          {
+            "id": "a2",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " mecánico y trabajaba cerca de su casa. Carmen, la mamá, ",
+          {
+            "id": "a3",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " maestra de primaria. Entre semana, Roberto casi siempre ",
+          {
+            "id": "a4",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " en el taller desde temprano. Carmen normalmente ",
+          {
+            "id": "a5",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " en la escuela hasta las dos. El martes pasado Roberto ",
+          {
+            "id": "a6",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " en el taller hasta las ocho porque tuvo mucho trabajo. Ese mismo día Carmen ",
+          {
+            "id": "a7",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " ocupada preparando una actividad para sus alumnos. Cuando los dos llegaron a casa, ",
+          {
+            "id": "a8",
+            "answer": "estaban",
+            "type": "estaba",
+            "opts": [
+              "estaban",
+              "eran",
+              "estuvieron",
+              "fueron"
+            ]
+          },
+          " cansados. Rodrigo, el hijo mayor, normalmente ",
+          {
+            "id": "a9",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " tranquilo, pero esa noche ",
+          {
+            "id": "a10",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " de muy buen humor. La cena ",
+          {
+            "id": "a11",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " sencilla: tacos y agua de limón. Paola ",
+          {
+            "id": "a12",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " contando algo de la escuela mientras Emilio jugaba con su vaso. Después de cenar, todos ",
+          {
+            "id": "a13",
+            "answer": "estuvieron",
+            "type": "estuve",
+            "opts": [
+              "estuvieron",
+              "eran",
+              "fueron",
+              "estaban"
+            ]
+          },
+          " en la sala un rato. La plática ",
+          {
+            "id": "a14",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " corta porque al día siguiente todos tenían cosas que hacer. Aun así, para Carmen ese rato ",
+          {
+            "id": "a15",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " una buena forma de terminar el día."
+        ],
+        "translation": "<p>The Mendoza family <span class=\"hi-era\">was</span> large and very close. Roberto, the father, <span class=\"hi-era\">was</span> a mechanic and worked near home. Carmen, the mother, <span class=\"hi-era\">was</span> an elementary school teacher. During the week, Roberto was almost always <span class=\"hi-estaba\">at the shop</span> from early in the morning. Carmen was normally <span class=\"hi-estaba\">at school</span> until two. Last Tuesday Roberto <span class=\"hi-estuve\">was</span> at the shop until eight because he had a lot of work. That same day Carmen <span class=\"hi-estuve\">was</span> busy preparing an activity for her students. When they both got home, they <span class=\"hi-estaba\">were</span> tired. Rodrigo, the oldest son, was normally <span class=\"hi-era\">calm</span>, but that night he <span class=\"hi-estuve\">was</span> in a very good mood. Dinner <span class=\"hi-fui\">was</span> simple: tacos and lime water. Paola <span class=\"hi-estaba\">was</span> telling them something about school while Emilio played with his cup. After dinner, everyone <span class=\"hi-estuve\">was</span> in the living room for a while. The conversation <span class=\"hi-fui\">was</span> short because everyone had things to do the next day. Even so, for Carmen that time together <span class=\"hi-fui\">was</span> a good way to end the day.</p>"
+      },
+      {
+        "id": "p1c2",
+        "label": "II. El domingo",
+        "intro": "A specific Sunday. Finished events use the preterite; background and ongoing states use the imperfect.",
+        "segments": [
+          "El domingo pasado la familia fue a un parque cerca de la casa. El día ",
+          {
+            "id": "b1",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " muy bonito y el parque ",
+          {
+            "id": "b2",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " lleno de familias. Roberto ",
+          {
+            "id": "b3",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " preparando sándwiches desde temprano. Carmen ",
+          {
+            "id": "b4",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " contenta porque hacía tiempo que no salían todos juntos. Rodrigo normalmente ",
+          {
+            "id": "b5",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " serio, pero ese día ",
+          {
+            "id": "b6",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " muy relajado. Paola ",
+          {
+            "id": "b7",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " la primera en encontrar una mesa libre. Mientras comían, Emilio ",
+          {
+            "id": "b8",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " jugando con una pelota. Después, los tres hermanos ",
+          {
+            "id": "b9",
+            "answer": "estuvieron",
+            "type": "estuve",
+            "opts": [
+              "estuvieron",
+              "eran",
+              "fueron",
+              "estaban"
+            ]
+          },
+          " corriendo cerca de los árboles casi una hora. La comida ",
+          {
+            "id": "b10",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " simple, pero todos dijeron que estaba rica. A media tarde Roberto ",
+          {
+            "id": "b11",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " un poco cansado y se sentó a descansar. Carmen ",
+          {
+            "id": "b12",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " la que más quería quedarse un rato más. Al final todos ",
+          {
+            "id": "b13",
+            "answer": "estuvieron",
+            "type": "estuve",
+            "opts": [
+              "estuvieron",
+              "eran",
+              "fueron",
+              "estaban"
+            ]
+          },
+          " de acuerdo en regresar antes de que oscureciera. El regreso ",
+          {
+            "id": "b14",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " tranquilo. Para los niños, ese domingo ",
+          {
+            "id": "b15",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " justo el tipo de día que querían repetir."
+        ],
+        "translation": "<p>Last Sunday the family went to a park near their house. The day <span class=\"hi-fui\">was</span> very nice and the park <span class=\"hi-estaba\">was</span> full of families. Roberto <span class=\"hi-estuve\">was</span> preparing sandwiches from early in the morning. Carmen <span class=\"hi-estaba\">was</span> happy because it had been a while since they had all gone out together. Rodrigo was normally <span class=\"hi-era\">serious</span>, but that day he <span class=\"hi-estuve\">was</span> very relaxed. Paola <span class=\"hi-fui\">was</span> the first to find a free table. While they ate, Emilio <span class=\"hi-estaba\">was</span> playing with a ball. Later, the three siblings <span class=\"hi-estuve\">were</span> running near the trees for almost an hour. The food <span class=\"hi-fui\">was</span> simple, but everyone said it was good. In the middle of the afternoon Roberto <span class=\"hi-estaba\">was</span> a little tired and sat down to rest. Carmen <span class=\"hi-era\">was</span> the one who most wanted to stay a little longer. In the end, everyone <span class=\"hi-estuve\">was</span> in agreement about going back before dark. The ride home <span class=\"hi-fui\">was</span> calm. For the kids, that Sunday <span class=\"hi-era\">was</span> exactly the kind of day they wanted to repeat.</p>"
+      },
+      {
+        "id": "p1c3",
+        "label": "III. El cumpleaños",
+        "intro": "A family birthday gives you a natural mix of identity, temporary states, background, and completed situations.",
+        "segments": [
+          "Hace unos meses celebraron el cumpleaños de Carmen. Cuando era niña, su cumpleaños ",
+          {
+            "id": "c1",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " una fecha muy importante para ella. Ese año la fiesta ",
+          {
+            "id": "c2",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " pequeña, solo con la familia. Antes de que llegaran todos, Carmen ",
+          {
+            "id": "c3",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " en la cocina con Paola. Roberto ",
+          {
+            "id": "c4",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " fuera de la casa unos veinte minutos porque fue por el pastel. El pastel ",
+          {
+            "id": "c5",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " de chocolate, su favorito. Rodrigo normalmente ",
+          {
+            "id": "c6",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " malo para guardar secretos, pero esta vez no dijo nada. Emilio ",
+          {
+            "id": "c7",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " muy emocionado y preguntaba cada cinco minutos cuándo iban a cantar. Cuando por fin llegó la hora, todos ",
+          {
+            "id": "c8",
+            "answer": "estuvieron",
+            "type": "estuve",
+            "opts": [
+              "estuvieron",
+              "eran",
+              "fueron",
+              "estaban"
+            ]
+          },
+          " alrededor de la mesa. Carmen ",
+          {
+            "id": "c9",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " sorprendida porque no esperaba regalo. La cena ",
+          {
+            "id": "c10",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " tranquila y muy familiar. Durante un rato, Rodrigo ",
+          {
+            "id": "c11",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " contando historias de cuando era niño. Paola ",
+          {
+            "id": "c12",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " la que más se reía. Al final de la noche todos ",
+          {
+            "id": "c13",
+            "answer": "estaban",
+            "type": "estaba",
+            "opts": [
+              "estaban",
+              "eran",
+              "estuvieron",
+              "fueron"
+            ]
+          },
+          " cansados, pero contentos. Para Carmen, lo mejor no ",
+          {
+            "id": "c14",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " el pastel ni los regalos; ",
+          {
+            "id": "c15",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " tener a todos juntos."
+        ],
+        "translation": "<p>A few months ago they celebrated Carmen's birthday. When she was a child, her birthday <span class=\"hi-era\">was</span> a very important date for her. That year the party <span class=\"hi-fui\">was</span> small, with only the family. Before everyone arrived, Carmen <span class=\"hi-estaba\">was</span> in the kitchen with Paola. Roberto <span class=\"hi-estuve\">was</span> out of the house for about twenty minutes because he went to pick up the cake. The cake <span class=\"hi-fui\">was</span> chocolate, her favorite. Rodrigo was normally <span class=\"hi-era\">bad at keeping secrets</span>, but this time he said nothing. Emilio <span class=\"hi-estaba\">was</span> very excited and kept asking when they were going to sing. When the time finally came, everyone <span class=\"hi-estuve\">was</span> around the table. Carmen <span class=\"hi-estuve\">was</span> surprised because she was not expecting a gift. Dinner <span class=\"hi-fui\">was</span> calm and very family-oriented. For a while, Rodrigo <span class=\"hi-estaba\">was</span> telling stories from when he was a child. Paola <span class=\"hi-era\">was</span> the one who laughed the most. At the end of the night everyone <span class=\"hi-estaba\">was</span> tired but happy. For Carmen, the best part <span class=\"hi-fui\">wasn't</span> the cake or the gifts; it <span class=\"hi-era\">was</span> having everyone together.</p>"
+      }
+    ]
+  },
+  {
+    "id": "p2",
+    "level": "A2–B1",
+    "difficulty": "Intermediate",
+    "levelColor": "var(--cera)",
+    "title": "El restaurante de Esperanza",
+    "subtitle": "Esperanza opens a small restaurant in Cuernavaca and slowly turns it into a neighborhood favorite.",
+    "chapters": [
+      {
+        "id": "p2c1",
+        "label": "I. Los comienzos",
+        "intro": "Simple background and clear finished periods. Vocabulary stays natural and everyday.",
+        "segments": [
+          "Esperanza llegó a Cuernavaca cuando tenía diecinueve años. Ella ",
+          {
+            "id": "d1",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " de Guerrero y no conocía a nadie en la ciudad. Al principio ",
+          {
+            "id": "d2",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " nerviosa porque tenía poco dinero. Su primer trabajo ",
+          {
+            "id": "d3",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " en una casa donde cocinaba y limpiaba. ",
+          {
+            "id": "d4",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " ahí casi dos años. La familia para la que trabajaba ",
+          {
+            "id": "d5",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " amable con ella. Casi siempre Esperanza ",
+          {
+            "id": "d6",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " ocupada desde muy temprano. Un verano ",
+          {
+            "id": "d7",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " trabajando doble turno durante varias semanas para ahorrar más. Juntar suficiente dinero ",
+          {
+            "id": "d8",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " difícil, pero lo logró. El local que encontró ",
+          {
+            "id": "d9",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " pequeño y sencillo. Además, ",
+          {
+            "id": "d10",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " en una calle poco transitada. El primer día de trabajo ",
+          {
+            "id": "d11",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " pesado porque casi todo lo hizo sola. Aun así, Esperanza ",
+          {
+            "id": "d12",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " contenta todo el día. La cocina ",
+          {
+            "id": "d13",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " pequeña, pero tenía lo necesario. Esa noche ",
+          {
+            "id": "d14",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " agotada cuando cerró. Antes de irse a dormir, ",
+          {
+            "id": "d15",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " un rato pensando en todo lo que había conseguido."
+        ],
+        "translation": "<p>Esperanza arrived in Cuernavaca when she was nineteen. She <span class=\"hi-era\">was</span> from Guerrero and did not know anyone in the city. At first she <span class=\"hi-estaba\">was</span> nervous because she had little money. Her first job <span class=\"hi-fui\">was</span> in a house where she cooked and cleaned. She <span class=\"hi-estuve\">was</span> there for almost two years. The family she worked for <span class=\"hi-era\">was</span> kind to her. Esperanza was almost always <span class=\"hi-estaba\">busy</span> from very early in the morning. One summer she <span class=\"hi-estuve\">was</span> working double shifts for several weeks to save more. Saving enough money <span class=\"hi-fui\">was</span> difficult, but she managed it. The place she found <span class=\"hi-era\">was</span> small and simple. It <span class=\"hi-estaba\">was</span> also on a quiet street. The first workday <span class=\"hi-fui\">was</span> tiring because she did almost everything alone. Even so, Esperanza <span class=\"hi-estuve\">was</span> happy all day. The kitchen <span class=\"hi-era\">was</span> small, but it had what she needed. That night she <span class=\"hi-estaba\">was</span> exhausted when she closed. Before going to bed, she <span class=\"hi-estuve\">was</span> thinking for a while about everything she had achieved.</p>"
+      },
+      {
+        "id": "p2c2",
+        "label": "II. Empieza a crecer",
+        "intro": "The restaurant gets busier. Notice the contrast between repeated background situations and specific finished moments.",
+        "segments": [
+          "Durante los primeros meses, el restaurante ",
+          {
+            "id": "e1",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " casi vacío entre semana. Esperanza ",
+          {
+            "id": "e2",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " paciente y seguía cocinando todos los días. Los fines de semana el lugar ",
+          {
+            "id": "e3",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " un poco más lleno. Un sábado, un periodista ",
+          {
+            "id": "e4",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " comiendo ahí con su familia. La comida ",
+          {
+            "id": "e5",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " tan buena que escribió una nota sobre el lugar. Para Esperanza, esa nota ",
+          {
+            "id": "e6",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " una sorpresa total. La semana siguiente el restaurante ",
+          {
+            "id": "e7",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " lleno durante varias horas cada día. Esperanza ",
+          {
+            "id": "e8",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " feliz, pero también muy cansada. Su hermano ",
+          {
+            "id": "e9",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " quien más la ayudaba cuando podía. Durante varios meses ella ",
+          {
+            "id": "e10",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " trabajando casi sola. Contratar a su primera ayudante ",
+          {
+            "id": "e11",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " un gran alivio. La nueva empleada ",
+          {
+            "id": "e12",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " rápida y muy amable con los clientes. Poco a poco el restaurante ",
+          {
+            "id": "e13",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          "Para Esperanza, recibir a tantos clientes nuevos ",
+          {
+            "id": "e14",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " una señal de que el negocio iba bien. Un domingo los dos turnos ",
+          {
+            "id": "e15",
+            "answer": "estuvieron",
+            "type": "estuve",
+            "opts": [
+              "estuvieron",
+              "eran",
+              "fueron",
+              "estaban"
+            ]
+          },
+          " completos y tuvieron que dejar de aceptar clientes temprano."
+        ],
+        "translation": "<p>During the first few months, the restaurant <span class=\"hi-estaba\">was</span> almost empty during the week. Esperanza <span class=\"hi-era\">was</span> patient and kept cooking every day. On weekends the place <span class=\"hi-estaba\">was</span> a little fuller. One Saturday, a journalist <span class=\"hi-estuve\">was</span> eating there with his family. The food <span class=\"hi-fui\">was</span> so good that he wrote a story about the place. For Esperanza, that article <span class=\"hi-fui\">was</span> a complete surprise. The following week the restaurant <span class=\"hi-estuve\">was</span> full for several hours every day. Esperanza <span class=\"hi-estaba\">was</span> happy, but also very tired. Her brother <span class=\"hi-era\">was</span> the person who helped her most when he could. For several months she <span class=\"hi-estuve\">was</span> working almost alone. Hiring her first assistant <span class=\"hi-fui\">was</span> a huge relief. The new employee <span class=\"hi-era\">was</span> quick and very friendly with customers. Little by little, the restaurant <span class=\"hi-estaba\">was</span> full almost every weekend. For Esperanza, receiving so many new customers <span class=\"hi-fui\">was</span> a sign that the business was doing well. One Sunday both shifts <span class=\"hi-estuve\">were</span> full and they had to stop taking customers early.</p>"
+      },
+      {
+        "id": "p2c3",
+        "label": "III. Mucho trabajo",
+        "intro": "Success brings long days and changing emotions. The four forms appear in everyday, natural situations.",
+        "segments": [
+          "Con más clientes también llegó más trabajo. Esperanza casi siempre ",
+          {
+            "id": "f1",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " cansada al final del día. Antes de abrir el restaurante, ella ",
+          {
+            "id": "f2",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " una persona con más tiempo libre. Ahora la cocina ",
+          {
+            "id": "f3",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " ocupada desde la mañana. Un viernes especialmente pesado, Esperanza ",
+          {
+            "id": "f4",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " cocinando sin parar casi cinco horas. Ese día el servicio ",
+          {
+            "id": "f5",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " muy complicado porque faltó una empleada. Su hija, que todavía ",
+          {
+            "id": "f6",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " adolescente, fue a ayudar después de la escuela. Durante la tarde las dos ",
+          {
+            "id": "f7",
+            "answer": "estuvieron",
+            "type": "estuve",
+            "opts": [
+              "estuvieron",
+              "eran",
+              "fueron",
+              "estaban"
+            ]
+          },
+          " preparando platos y limpiando mesas. Para la hija, trabajar ahí ",
+          {
+            "id": "f8",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " más cansado de lo que imaginaba. Al cerrar, Esperanza ",
+          {
+            "id": "f9",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          "Después de cerrar, ese descanso ",
+          {
+            "id": "f10",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " necesario para las dos. Aunque el restaurante ",
+          {
+            "id": "f11",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " importante para Esperanza, también sabía que necesitaba descansar. Tomarse el lunes libre ",
+          {
+            "id": "f12",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " una buena decisión. Ese lunes ",
+          {
+            "id": "f13",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " en casa casi todo el día. Su casa ",
+          {
+            "id": "f14",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " tranquila y ahí podía desconectarse. Por la tarde ",
+          {
+            "id": "f15",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " mucho más relajada."
+        ],
+        "translation": "<p>With more customers came more work. Esperanza was almost always <span class=\"hi-estaba\">tired</span> at the end of the day. Before opening the restaurant, she <span class=\"hi-era\">was</span> a person with more free time. Now the kitchen <span class=\"hi-estaba\">was</span> busy from the morning. On one especially busy Friday, Esperanza <span class=\"hi-estuve\">was</span> cooking nonstop for almost five hours. That day the service <span class=\"hi-fui\">was</span> very difficult because one employee was absent. Her daughter, who <span class=\"hi-era\">was</span> still a teenager, went to help after school. During the afternoon, the two of them <span class=\"hi-estuve\">were</span> preparing dishes and cleaning tables. For her daughter, working there <span class=\"hi-fui\">was</span> more tiring than she expected. At closing time, Esperanza <span class=\"hi-estaba\">was</span> in a good mood because they had finished all the work. After closing, that break <span class=\"hi-fui\">was</span> necessary for both of them. Although the restaurant <span class=\"hi-era\">was</span> important to Esperanza, she also knew she needed to rest. Taking Monday off <span class=\"hi-fui\">was</span> a good decision. That Monday she <span class=\"hi-estuve\">was</span> at home almost all day. Her house <span class=\"hi-era\">was</span> quiet and she could disconnect there. By the afternoon she <span class=\"hi-estaba\">was</span> much more relaxed.</p>"
+      },
+      {
+        "id": "p2c4",
+        "label": "IV. Lo que dejó",
+        "intro": "The last part looks back at the restaurant and the people around it, with a balanced mix of all four forms.",
+        "segments": [
+          "Con los años, el restaurante se volvió parte del barrio. Para muchos clientes, Esperanza ",
+          {
+            "id": "g1",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " más que la dueña del lugar. Siempre ",
+          {
+            "id": "g2",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " lista para saludar o escuchar a alguien. Un año ",
+          {
+            "id": "g3",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " enferma varias semanas y tuvo que quedarse en casa. Ese periodo ",
+          {
+            "id": "g4",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " difícil para ella porque no le gustaba estar lejos del restaurante. Mientras se recuperaba, su hija ",
+          {
+            "id": "g5",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " encargada del negocio. El equipo ",
+          {
+            "id": "g6",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " pequeño, pero funcionaba bien. Cada tarde Esperanza ",
+          {
+            "id": "g7",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " pendiente del teléfono para saber cómo había ido el día. Cuando por fin regresó, la bienvenida ",
+          {
+            "id": "g8",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " muy emotiva. Muchos clientes ",
+          {
+            "id": "g9",
+            "answer": "estuvieron",
+            "type": "estuve",
+            "opts": [
+              "estuvieron",
+              "eran",
+              "fueron",
+              "estaban"
+            ]
+          },
+          "Ese reencuentro ",
+          {
+            "id": "g10",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " tan emotivo que casi lloró. El restaurante ",
+          {
+            "id": "g11",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " sencillo, pero la gente lo sentía cercano. Años después, el último día que Esperanza trabajó ahí ",
+          {
+            "id": "g12",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " un sábado. Durante el turno ",
+          {
+            "id": "g13",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " rodeada de su familia y de clientes de muchos años. Para su hija, ese día ",
+          {
+            "id": "g14",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " el final de una etapa. Al cerrar la puerta, todos ",
+          {
+            "id": "g15",
+            "answer": "estaban",
+            "type": "estaba",
+            "opts": [
+              "estaban",
+              "eran",
+              "estuvieron",
+              "fueron"
+            ]
+          },
+          " tristes, pero también orgullosos de lo que habían construido."
+        ],
+        "translation": "<p>Over the years, the restaurant became part of the neighborhood. For many customers, Esperanza <span class=\"hi-era\">was</span> more than the owner. She was always <span class=\"hi-estaba\">ready</span> to greet or listen to someone. One year she <span class=\"hi-estuve\">was</span> sick for several weeks and had to stay home. That period <span class=\"hi-fui\">was</span> difficult for her because she did not like being away from the restaurant. While she recovered, her daughter <span class=\"hi-estuve\">was</span> in charge of the business. The team <span class=\"hi-era\">was</span> small, but it worked well. Every afternoon Esperanza <span class=\"hi-estaba\">was</span> watching the phone to find out how the day had gone. When she finally returned, the welcome <span class=\"hi-fui\">was</span> very emotional. Many customers <span class=\"hi-estuve\">were</span> there just to see her. That reunion <span class=\"hi-fui\">was</span> so emotional that she almost cried. The restaurant <span class=\"hi-era\">was</span> simple, but people felt close to it. Years later, the last day Esperanza worked there <span class=\"hi-fui\">was</span> a Saturday. During the shift she <span class=\"hi-estuve\">was</span> surrounded by her family and long-time customers. For her daughter, that day <span class=\"hi-era\">was</span> the end of a stage. When they closed the door, everyone <span class=\"hi-estaba\">was</span> sad, but also proud of what they had built.</p>"
+      }
+    ]
+  },
+  {
+    "id": "p3",
+    "level": "B1",
+    "difficulty": "Advanced",
+    "levelColor": "var(--cfui)",
+    "title": "El año que cambió todo",
+    "subtitle": "Daniel, 28, leaves a stable career to travel alone for a year — and discovers who he really is.",
+    "chapters": [
+      {
+        "id": "p3c1",
+        "label": "I. La vida de antes",
+        "intro": "Daniel’s old routine and one turning point. Background descriptions alternate with specific, completed moments.",
+        "segments": [
+          "Daniel ",
+          {
+            "id": "h1",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " programador en una empresa de tecnología en Monterrey. Su trabajo ",
+          {
+            "id": "h2",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " estable y bien pagado, pero él casi siempre ",
+          {
+            "id": "h3",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " inquieto. Su departamento ",
+          {
+            "id": "h4",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " pequeño, aunque cómodo. Entre semana normalmente ",
+          {
+            "id": "h5",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " en la oficina hasta tarde. El día que cumplió veintiocho años ",
+          {
+            "id": "h6",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " pensando varias horas en lo que quería hacer con su vida. Su cena de cumpleaños ",
+          {
+            "id": "h7",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " sencilla, solo con amigos cercanos. Durante la cena ",
+          {
+            "id": "h8",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " más callado de lo normal. Su mejor amigo ",
+          {
+            "id": "h9",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " quien mejor notaba cuando algo le preocupaba. Después de cenar, Daniel ",
+          {
+            "id": "h10",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " caminando solo casi una hora. Tomar la decisión de viajar ",
+          {
+            "id": "h11",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " difícil, pero también emocionante. Esa noche ",
+          {
+            "id": "h12",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " despierto hasta muy tarde haciendo planes. A la mañana siguiente todavía ",
+          {
+            "id": "h13",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " nervioso. Aun así, comprar el primer boleto ",
+          {
+            "id": "h14",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " el paso que necesitaba. Durante varios días ",
+          {
+            "id": "h15",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " organizando sus cosas y revisando su presupuesto."
+        ],
+        "translation": "<p>Daniel <span class=\"hi-era\">was</span> a programmer at a technology company in Monterrey. His job <span class=\"hi-era\">was</span> stable and well paid, but he was almost always <span class=\"hi-estaba\">restless</span>. His apartment <span class=\"hi-era\">was</span> small but comfortable. During the week he was normally <span class=\"hi-estaba\">at the office</span> until late. On the day he turned twenty-eight, he <span class=\"hi-estuve\">was</span> thinking for several hours about what he wanted to do with his life. His birthday dinner <span class=\"hi-fui\">was</span> simple, only with close friends. During dinner he <span class=\"hi-estaba\">was</span> quieter than usual. His best friend <span class=\"hi-era\">was</span> the person who best noticed when something was bothering him. After dinner, Daniel <span class=\"hi-estuve\">was</span> walking alone for almost an hour. Making the decision to travel <span class=\"hi-fui\">was</span> difficult but also exciting. That night he <span class=\"hi-estuve\">was</span> awake until very late making plans. The next morning he was still <span class=\"hi-estaba\">nervous</span>. Even so, buying the first ticket <span class=\"hi-fui\">was</span> the step he needed. For several days he <span class=\"hi-estuve\">was</span> organizing his things and reviewing his budget.</p>"
+      },
+      {
+        "id": "p3c2",
+        "label": "II. La renuncia",
+        "intro": "The resignation is a completed event, while Daniel’s feelings and background circumstances frame it.",
+        "segments": [
+          "Dos semanas después, Daniel renunció. La conversación con su jefe ",
+          {
+            "id": "i1",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " corta e incómoda. Su jefe ",
+          {
+            "id": "i2",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " un hombre muy directo. Mientras hablaban, Daniel ",
+          {
+            "id": "i3",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " nervioso, aunque trataba de no demostrarlo. Después de salir de la oficina ",
+          {
+            "id": "i4",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " solo un rato en una cafetería. El lugar ",
+          {
+            "id": "i5",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " casi vacío y eso le ayudó a pensar. Su primera idea ",
+          {
+            "id": "i6",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " viajar por México y luego seguir hacia Centroamérica. Comprar el boleto ",
+          {
+            "id": "i7",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " el momento en que todo se volvió real. Esa noche su mochila ",
+          {
+            "id": "i8",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " abierta sobre la cama. Daniel ",
+          {
+            "id": "i9",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " empacando hasta la madrugada. Su hermana ",
+          {
+            "id": "i10",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " la única persona de la familia que sabía todos los detalles. Al día siguiente los dos ",
+          {
+            "id": "i11",
+            "answer": "estuvieron",
+            "type": "estuve",
+            "opts": [
+              "estuvieron",
+              "eran",
+              "fueron",
+              "estaban"
+            ]
+          },
+          " desayunando juntos antes de que él saliera. La despedida ",
+          {
+            "id": "i12",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " más difícil de lo que Daniel esperaba. Durante el viaje al aeropuerto ",
+          {
+            "id": "i13",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          "El intento de su hermana por hacerlo reír ",
+          {
+            "id": "i14",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " una buena ayuda en ese momento. Cuando por fin se despidieron, Daniel ",
+          {
+            "id": "i15",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " unos minutos mirando la entrada antes de entrar."
+        ],
+        "translation": "<p>Two weeks later, Daniel quit. The conversation with his boss <span class=\"hi-fui\">was</span> short and uncomfortable. His boss <span class=\"hi-era\">was</span> a very direct man. While they talked, Daniel <span class=\"hi-estaba\">was</span> nervous, although he tried not to show it. After leaving the office, he <span class=\"hi-estuve\">was</span> alone for a while in a coffee shop. The place <span class=\"hi-estaba\">was</span> almost empty and that helped him think. His first idea <span class=\"hi-era\">was</span> to travel through Mexico and then continue toward Central America. Buying the ticket <span class=\"hi-fui\">was</span> the moment when everything became real. That night his backpack <span class=\"hi-estaba\">was</span> open on the bed. Daniel <span class=\"hi-estuve\">was</span> packing until very late. His sister <span class=\"hi-era\">was</span> the only person in the family who knew all the details. The next day the two of them <span class=\"hi-estuve\">were</span> having breakfast together before he left. The goodbye <span class=\"hi-fui\">was</span> harder than Daniel expected. During the ride to the airport he <span class=\"hi-estaba\">was</span> very quiet. His sister’s attempt to make him laugh <span class=\"hi-fui\">was</span> helpful at that moment. When they finally said goodbye, Daniel <span class=\"hi-estuve\">was</span> looking at the entrance for a few minutes before going in.</p>"
+      },
+      {
+        "id": "p3c3",
+        "label": "III. Chiapas",
+        "intro": "One stage of the trip gives clear time limits for ESTUVO and completed evaluations with FUE.",
+        "segments": [
+          "Los primeros días del viaje ",
+          {
+            "id": "j1",
+            "answer": "fueron",
+            "type": "fui",
+            "opts": [
+              "fueron",
+              "eran",
+              "estuvieron",
+              "estaban"
+            ]
+          },
+          " más difíciles de lo que esperaba. Daniel ",
+          {
+            "id": "j2",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " acostumbrado a tener todo bajo control. Su forma de ser ",
+          {
+            "id": "j3",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " bastante organizada. En Chiapas ",
+          {
+            "id": "j4",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " tres semanas en una comunidad pequeña. La gente del lugar ",
+          {
+            "id": "j5",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " amable y muy abierta con él. Durante las clases, Daniel ",
+          {
+            "id": "j6",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " sorprendido por las preguntas de los niños. La primera semana ",
+          {
+            "id": "j7",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " ayudando con clases de inglés básico. Para él, dar esas clases ",
+          {
+            "id": "j8",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " algo completamente nuevo. Una tarde ",
+          {
+            "id": "j9",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " jugando futbol con los niños hasta que oscureció. Mientras jugaban, todos ",
+          {
+            "id": "j10",
+            "answer": "estaban",
+            "type": "estaba",
+            "opts": [
+              "estaban",
+              "eran",
+              "estuvieron",
+              "fueron"
+            ]
+          },
+          " muy animados. El profesor local ",
+          {
+            "id": "j11",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " una persona tranquila que conocía muy bien a la comunidad. La última clase ",
+          {
+            "id": "j12",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " especial porque los alumnos prepararon una despedida. Daniel ",
+          {
+            "id": "j13",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          "La última charla con el profesor ",
+          {
+            "id": "j14",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " tranquila y breve. Para Daniel, esa experiencia ",
+          {
+            "id": "j15",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " una prueba de que quería hacer algo diferente con su vida."
+        ],
+        "translation": "<p>The first days of the trip <span class=\"hi-fui\">were</span> harder than he expected. Daniel <span class=\"hi-estaba\">was</span> used to having everything under control. His personality <span class=\"hi-era\">was</span> quite organized. In Chiapas he <span class=\"hi-estuve\">was</span> in a small community for three weeks. The people there <span class=\"hi-era\">were</span> kind and very open with him. During the classes, Daniel <span class=\"hi-estaba\">was</span> surprised by the children's questions. The first week he <span class=\"hi-estuve\">was</span> helping with basic English classes. For him, teaching those classes <span class=\"hi-fui\">was</span> something completely new. One afternoon he <span class=\"hi-estuve\">was</span> playing soccer with the children until dark. While they played, everyone <span class=\"hi-estaba\">was</span> very excited. The local teacher <span class=\"hi-era\">was</span> a calm person who knew the community very well. The last class <span class=\"hi-fui\">was</span> special because the students prepared a goodbye. Daniel <span class=\"hi-estaba\">was</span> emotional and almost did not know what to say. The last conversation with the teacher <span class=\"hi-fui\">was</span> calm and brief. For Daniel, that experience <span class=\"hi-era\">was</span> proof that he wanted to do something different with his life.</p>"
+      },
+      {
+        "id": "p3c4",
+        "label": "IV. Marta y Guatemala",
+        "intro": "Descriptions of Marta alternate with a clearly bounded month they spend traveling together.",
+        "segments": [
+          "En Guatemala conoció a Marta. Ella ",
+          {
+            "id": "k1",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " fotógrafa y viajaba sola. Cuando Daniel la vio por primera vez, ",
+          {
+            "id": "k2",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " discutiendo el precio de unas artesanías en un mercado. Su primera conversación ",
+          {
+            "id": "k3",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " divertida y duró casi una hora. Durante el mes siguiente los dos ",
+          {
+            "id": "k4",
+            "answer": "estuvieron",
+            "type": "estuve",
+            "opts": [
+              "estuvieron",
+              "eran",
+              "fueron",
+              "estaban"
+            ]
+          },
+          " viajando juntos por el país. Marta ",
+          {
+            "id": "k5",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " muy directa, pero también sabía escuchar. Daniel casi siempre ",
+          {
+            "id": "k6",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " más relajado cuando hablaba con ella. Un fin de semana ",
+          {
+            "id": "k7",
+            "answer": "estuvieron",
+            "type": "estuve",
+            "opts": [
+              "estuvieron",
+              "eran",
+              "fueron",
+              "estaban"
+            ]
+          },
+          " cerca del lago de Atitlán. El paisaje ",
+          {
+            "id": "k8",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " una de las cosas que más impresionó a Daniel. Una noche él ",
+          {
+            "id": "k9",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " preocupado por el futuro y hablaron durante horas. Marta ",
+          {
+            "id": "k10",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " a su lado hasta que se sintió mejor. Su manera de ver la vida ",
+          {
+            "id": "k11",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " muy diferente a la de Daniel. La última semana juntos ",
+          {
+            "id": "k12",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          "La despedida ",
+          {
+            "id": "k13",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " seria y tranquila. Marta ",
+          {
+            "id": "k14",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " la primera persona del viaje con quien Daniel había hablado de verdad. Después de que ella se fue, Daniel ",
+          {
+            "id": "k15",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " triste un par de días."
+        ],
+        "translation": "<p>In Guatemala he met Marta. She <span class=\"hi-era\">was</span> a photographer and traveled alone. When Daniel first saw her, she <span class=\"hi-estaba\">was</span> arguing over the price of some crafts in a market. Their first conversation <span class=\"hi-fui\">was</span> fun and lasted almost an hour. During the following month, the two of them <span class=\"hi-estuve\">were</span> traveling together around the country. Marta <span class=\"hi-era\">was</span> very direct, but she also knew how to listen. Daniel was almost always <span class=\"hi-estaba\">more relaxed</span> when he talked with her. One weekend they <span class=\"hi-estuve\">were</span> near Lake Atitlán. The scenery <span class=\"hi-fui\">was</span> one of the things that impressed Daniel most. One night he <span class=\"hi-estaba\">was</span> worried about the future and they talked for hours. Marta <span class=\"hi-estuve\">was</span> by his side until he felt better. Her way of seeing life <span class=\"hi-era\">was</span> very different from Daniel's. Their last week together <span class=\"hi-fui\">was</span> especially intense because they knew they would soon go separate ways. The goodbye <span class=\"hi-fui\">was</span> serious and calm. Marta <span class=\"hi-era\">was</span> the first person on the trip with whom Daniel had truly talked. After she left, Daniel <span class=\"hi-estuve\">was</span> sad for a couple of days.</p>"
+      },
+      {
+        "id": "p3c5",
+        "label": "V. La vuelta",
+        "intro": "Back in Monterrey, Daniel compares his old identity with specific moments after returning.",
+        "segments": [
+          "Cuando volvió a Monterrey, ",
+          {
+            "id": "l1",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " enero. Su departamento ",
+          {
+            "id": "l2",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " igual que antes, pero Daniel había cambiado. La primera semana ",
+          {
+            "id": "l3",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " visitando a familiares y amigos. Verlos de nuevo ",
+          {
+            "id": "l4",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " emocionante. Antes del viaje, Daniel ",
+          {
+            "id": "l5",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " muy reservado. Ahora casi siempre ",
+          {
+            "id": "l6",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " más dispuesto a hablar de lo que quería. Cuando una empresa le ofreció trabajo, ",
+          {
+            "id": "l7",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " pensándolo varios días. La oferta ",
+          {
+            "id": "l8",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " buena, pero él decidió empezar un proyecto propio. Su idea ",
+          {
+            "id": "l9",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " crear una plataforma de idiomas para comunidades con menos recursos. El día que registró la empresa ",
+          {
+            "id": "l10",
+            "answer": "estaba",
+            "type": "estaba",
+            "opts": [
+              "estaba",
+              "era",
+              "estuvo",
+              "fue"
+            ]
+          },
+          " muy nervioso. También ",
+          {
+            "id": "l11",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          " hablando con un contador casi toda la mañana. Firmar los primeros papeles ",
+          {
+            "id": "l12",
+            "answer": "fue",
+            "type": "fui",
+            "opts": [
+              "fue",
+              "era",
+              "estuvo",
+              "estaba"
+            ]
+          },
+          " un momento importante para él. Durante los meses siguientes ",
+          {
+            "id": "l13",
+            "answer": "estuvo",
+            "type": "estuve",
+            "opts": [
+              "estuvo",
+              "era",
+              "fue",
+              "estaba"
+            ]
+          },
+          "Algunas semanas ",
+          {
+            "id": "l14",
+            "answer": "fueron",
+            "type": "fui",
+            "opts": [
+              "fueron",
+              "eran",
+              "estuvieron",
+              "estaban"
+            ]
+          },
+          " pesadas y Daniel dudaba de su decisión. Aun así, su objetivo ",
+          {
+            "id": "l15",
+            "answer": "era",
+            "type": "era",
+            "opts": [
+              "era",
+              "fue",
+              "estaba",
+              "estuvo"
+            ]
+          },
+          " mucho más claro que antes del viaje."
+        ],
+        "translation": "<p>When he returned to Monterrey, it <span class=\"hi-era\">was</span> January. His apartment <span class=\"hi-estaba\">was</span> the same as before, but Daniel had changed. During the first week he <span class=\"hi-estuve\">was</span> visiting family and friends. Seeing them again <span class=\"hi-fui\">was</span> exciting. Before the trip, Daniel <span class=\"hi-era\">was</span> very reserved. Now he was almost always <span class=\"hi-estaba\">more willing</span> to talk about what he wanted. When a company offered him a job, he <span class=\"hi-estuve\">was</span> thinking about it for several days. The offer <span class=\"hi-fui\">was</span> good, but he decided to start his own project. His idea <span class=\"hi-era\">was</span> to create a language platform for communities with fewer resources. The day he registered the company, he <span class=\"hi-estaba\">was</span> very nervous. He also <span class=\"hi-estuve\">was</span> talking with an accountant for almost the whole morning. Signing the first papers <span class=\"hi-fui\">was</span> an important moment for him. During the following months he <span class=\"hi-estuve\">was</span> working many hours on the project. Some weeks <span class=\"hi-fui\">were</span> difficult and Daniel doubted his decision. Even so, his goal <span class=\"hi-era\">was</span> much clearer than before the trip.</p>"
+      }
+    ]
+  }
 ];
 
 
